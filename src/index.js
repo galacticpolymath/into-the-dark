@@ -31,10 +31,11 @@ function init () {
 		<title>Into the Dark</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<link rel="shortcut icon" href="#" />
-        `
+        <link rel="stylesheet" href="styles.css"></link>
+        <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">`
     
     document.body.innerHTML = 
-    `    <div id="nav">
+    `    <div id="nav" class="mw8 center">
             <img src="./gp_logo_gradient_transBG.png" alt="Galactic Polymath" width="30" height="30">
             <a href="#" class="nav-link active-link" data-mode="title">0. Start</a>
             <a href="#" class="nav-link" data-mode="sim1">1. Intro</a>
@@ -43,7 +44,7 @@ function init () {
             <a href="#" class="nav-link" data-mode="sim4">4. Dark</a>
             <a href="#" class="nav-link" data-mode="sim5">5. Experiment</a>
         </div>
-        <div id="sim">
+        <div id="sim" class="mw8 center cf">
         <div id="title">
             <div id="title-text">
                 <h5>ASDF loaded from index.html</h5>
