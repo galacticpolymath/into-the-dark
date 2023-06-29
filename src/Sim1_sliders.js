@@ -8,7 +8,7 @@ export default (params) => {
     const slider_width = 450;
 
     const go_button = d3.select('#controls').select('.button')
-        .attr('transform', `translate(${slider_width / 2 + 15}, ${params.widgets.playbutton_size/2 + sliders_y - 100})`)
+        .attr('transform', `translate(${slider_width / 2 + 15}, ${params.widgets.playbutton_size/2 + sliders_y - 130})`)
 
     const g = d3.select("#controls").select('svg').append('g')
         .attr('id', 'sliders')
@@ -36,13 +36,13 @@ export default (params) => {
         .attr('transform', `translate(15, ${sliders_y})`)
 
     g.append('text').text('Slow').attr('x', 10).attr('y', sliders_y + 25).style("font-size", "16px")
-    g.append('text').text('Fast').attr('x', slider_width - 20).attr('y', sliders_y + 25).style("font-size", "14px")
+    g.append('text').text('Fast').attr('x', slider_width - 20).attr('y', sliders_y + 25).style("font-size", "14px").attr('text-anchor', 'end')
 
-    
-    
     g.append("text")
         .text("Speed")
-        .attr("x", 180)
-        .attr("y", sliders_y - 10)
-        .style("font-weight", 600);
+        .attr("x", slider_width/2 + 12)
+        .attr("y", sliders_y - 20)
+        //.style("font-weight", 600)
+        .style('font-size', '24px')
+        .attr('text-anchor', 'middle');
 }

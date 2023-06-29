@@ -4,7 +4,7 @@ import {sliderHorizontal} from 'd3-simple-slider';
 export default (params) => {
     const sliders_y = 100;
     const slider_spacing = 90;
-    const slider_width = 480;
+    const slider_width = 410;
 
     const go_button = d3.select('#controls').select('svg').select('g:nth-child(1)')
         .attr('transform', `translate(${slider_width / 2 - 40}, ${params.widgets.playbutton_size/2 + 3})`)
@@ -36,16 +36,16 @@ export default (params) => {
                 .attr('y2', slider_spacing * i + 50)
         }
 
-        g.append('text').text('In the Light').attr('x', 0).attr('y', slider_spacing * i + 30)
-        g.append('text').text('In the Dark').attr('x', slider_width - 20).attr('text-anchor', 'end').attr('y', slider_spacing * i + 30)
-        g.append('text').text(ticks[0]).attr('x', 10).attr('y', slider_spacing * i + 62).style("font-size", "12px")
-        g.append('text').text(ticks[1]).attr('x', 211).attr('y', slider_spacing * i + 62).style("font-size", "12px")
-        g.append('text').text(ticks[2]).attr('x', 375).attr('y', slider_spacing * i + 62).style("font-size", "12px")
+        g.append('text').text('In the Light').attr('x', 0).attr('y', slider_spacing * i + 30).attr('text-anchor', 'start')
+        g.append('text').text('In the Dark').attr('x', slider_width - 20).attr('y', slider_spacing * i + 30).attr('text-anchor', 'end')
+        g.append('text').text(ticks[0]).attr('x', 10).attr('y', slider_spacing * i + 62).style("font-size", "12px").attr('text-anchor', 'start')
+        g.append('text').text(ticks[1]).attr('x', slider_width/2 - 10).attr('y', slider_spacing * i + 62).style("font-size", "12px").attr('text-anchor', 'middle')
+        g.append('text').text(ticks[2]).attr('x', slider_width - 40).attr('y', slider_spacing * i + 62).style("font-size", "12px").attr('text-anchor', 'end')
 
         const labels = ['Relative Speed', 'Relative Alignment Radius', 'Relative Attraction Radius']
-        g.append('text').text(labels[0]).attr('x', 175);
-        g.append('text').text(labels[1]).attr('x', 135).attr('y', slider_spacing);
-        g.append('text').text(labels[2]).attr('x', 138).attr('y', slider_spacing * 2);
+        g.append('text').text(labels[0]).attr('x', slider_width/2 - 10).attr('text-anchor', 'middle');
+        g.append('text').text(labels[1]).attr('x', slider_width/2 - 10).attr('y', slider_spacing).attr('text-anchor', 'middle');
+        g.append('text').text(labels[2]).attr('x', slider_width/2 - 10).attr('y', slider_spacing * 2).attr('text-anchor', 'middle');
     }
 
     

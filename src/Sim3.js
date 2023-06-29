@@ -18,10 +18,11 @@ class Sim3 extends BasicSim {
 
         d3.select('#control-text')
             .html('Imagine these fish are swimming in open water on a sunny day. <br/>\
-                Any single fish could become easy prey for a larger predatory fish. <p/>\
-                Swimming in a larger group can make it more difficult for predators <br/>\
-                to lock onto a single target. But schooling is not just about <br/>\
-                but how well you align with other fish in your group.<p/>\
+                Any single fish could become easy prey for a larger predator. <p/>\
+                Swimming in a larger group can make it more difficult for <br/>\
+                predators to lock onto a single target. But schooling is not just <br/>\
+                about following, but how well you align with other fish in your <br/>\
+                group.<p/>\
                 Explore how <i>Alignment</i> affects schooling behavior.<p/>\
                 <b>Questions</b>:<p/>\
                 Does one of these variables alone seem to cause schooling, <br/>\

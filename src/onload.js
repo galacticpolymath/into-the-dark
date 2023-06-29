@@ -20,7 +20,7 @@ window.onload = function() {
 
 function loadModule(mode) {
     if (mode === 'title') {
-        import('./title.js')
+        import('./index.js')
             .then((module) => {
                 module.default();
             })

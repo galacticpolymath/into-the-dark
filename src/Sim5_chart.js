@@ -4,7 +4,7 @@ const n = 1000
 const perc = d3.format(".0%");
 
 const margin = {top: 10, right: 20, bottom: 20, left: 40},
-    width = 500 - margin.left - margin.right,
+    width = 435 - margin.left - margin.right,
     height = 150 - margin.top - margin.bottom
 
 const x = d3.scaleLinear()

@@ -4,7 +4,7 @@ import {sliderHorizontal} from 'd3-simple-slider';
 export default (params) => {
     const sliders_y = 100;
     const slider_spacing = 100;
-    const slider_width = 420;
+    const slider_width = 410;
 
     const go_button = d3.select('#controls').select('.button')
         .attr('transform', `translate(${slider_width / 2}, ${params.widgets.playbutton_size/2 + 5})`)

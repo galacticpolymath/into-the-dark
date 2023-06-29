@@ -17,9 +17,9 @@ class Sim5 extends BasicSim {
         d3.select("#controls")
             .style("height", "600px")
             .select("svg")
-            .style("height", "500px")
-            .style("width", "500px")
-            .attr("viewBox", `0 0 500 500`);
+            .style("height", "420")
+            .style("width", "450px")
+            .attr("viewBox", `0 0 450 420`);
 
         setup_sliders(this.params);
         setup_chart(this.data);
