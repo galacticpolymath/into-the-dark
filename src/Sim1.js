@@ -106,4 +106,6 @@ class Sim1 extends BasicSim {
 export default function load () {
     document.getElementById("sim").innerHTML = '';
 	const sim = new Sim1();
+
+    return;
 }

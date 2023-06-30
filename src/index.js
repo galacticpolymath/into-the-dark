@@ -24,6 +24,7 @@ export default function title () {
 
     div.innerHTML = introHTML;
 }   
+//<link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">`
 
 function init () {
     document.head.innerHTML = 
@@ -31,8 +32,8 @@ function init () {
 		<title>Into the Dark</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<link rel="shortcut icon" href="#" />
-        <link rel="stylesheet" href="styles.css"></link>
-        <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">`
+        <link rel="stylesheet" href="styles.css"></link>`
+        
     
     document.body.innerHTML = 
     `    <div id="nav" class="mw8 center">
@@ -55,6 +56,11 @@ function init () {
             <div id="fish">
                     <img src="./circle fish school.png" alt="fish collective behavior" width="400" height="400">
             </div>
+        </div>
+        </div>
+        <div id="backnext" class="mw8 right cf">
+            <div class="bf-link"></div>
+            <div class="bf-link"><a href="#" data-mode="sim1">Next</a></div>
         </div>
     </div>`
 }
