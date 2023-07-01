@@ -15,7 +15,7 @@ class Sim5 extends BasicSim {
         this.data = new Array(1000).fill(0);
 
         d3.select("#controls")
-            .style("height", "600px")
+            .style("height", "570px")
             .select("svg")
             .style("height", "420")
             .style("width", "450px")

@@ -12,7 +12,7 @@ class Sim2 extends BasicSim {
         this.N = params.N;
 
         d3.select('#controls')
-            .style('height', '550px')
+            .style('height', '600px')
             .select('svg')
             .style("height", "270px")
             .style("width", "500px")

@@ -36,33 +36,36 @@ function init () {
         
     
     document.body.innerHTML = 
-    `    <div id="nav" class="mw8 center">
+    `<div id="container" class="mw8 center">    
+        <div id="nav" class="mw8 center">
             <img src="./gp_logo_gradient_transBG.png" alt="Galactic Polymath" width="30" height="30">
-            <a href="#" class="nav-link active-link" data-mode="title">0. Start</a>
-            <a href="#" class="nav-link" data-mode="sim1">1. Intro</a>
-            <a href="#" class="nav-link" data-mode="sim2">2. Groups</a>
-            <a href="#" class="nav-link" data-mode="sim3">3. Light</a>
-            <a href="#" class="nav-link" data-mode="sim4">4. Dark</a>
-            <a href="#" class="nav-link" data-mode="sim5">5. Experiment</a>
+            <a href="#" class="nav-link active-link" data-mode="0">0. Start</a>
+            <a href="#" class="nav-link" data-mode="1">1. Intro</a>
+            <a href="#" class="nav-link" data-mode="2">2. Groups</a>
+            <a href="#" class="nav-link" data-mode="3">3. Light</a>
+            <a href="#" class="nav-link" data-mode="4">4. Dark</a>
+            <a href="#" class="nav-link" data-mode="5">5. Experiment</a>
         </div>
         <div id="sim" class="mw8 center cf">
-        <div id="title">
-            <div id="title-text">
-                <h5>ASDF loaded from index.html</h5>
-                <h1>Swimming in the Dark</h1>
-                <h3>A simulation of fish schooling behavior</h3>
-                <h6>This Simulation Connects to Part 4 of GP's "Animal Collective" Lesson</h6>
+            <div id="title">
+                <div id="title-text">
+                    <h5>ASDF loaded from index.html</h5>
+                    <h1>Swimming in the Dark</h1>
+                    <h3>A simulation of fish schooling behavior</h3>
+                    <h6>This Simulation Connects to Part 4 of GP's "Animal Collective" Lesson</h6>
+                </div>
+                <div id="fish">
+                        <img src="./circle fish school.png" alt="fish collective behavior" width="400" height="400">
+                </div>
             </div>
-            <div id="fish">
-                    <img src="./circle fish school.png" alt="fish collective behavior" width="400" height="400">
+        </div>
+        <div id="backnext" class="bf-links mv3 fr pa2">
+            <div id="next" class="fr ph3 pv1 ba mr5">
+                <a href="#" data-mode="1">Next</a>
             </div>
         </div>
-        </div>
-        <div id="backnext" class="mw8 right cf">
-            <div class="bf-link"></div>
-            <div class="bf-link"><a href="#" data-mode="sim1">Next</a></div>
-        </div>
-    </div>`
+    </div>
+    `
 }
 
 init();
