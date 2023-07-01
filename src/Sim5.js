@@ -3,6 +3,7 @@ import setup_sliders from './Sim5_sliders.js'
 import {setup_chart, chart_tick} from './Sim5_chart.js'
 import * as d3 from "d3";
 import parameters from './parameters'
+import setup_modal from './Sim5_modal'
 
 class Sim5 extends BasicSim {
     constructor () {
@@ -23,6 +24,7 @@ class Sim5 extends BasicSim {
 
         setup_sliders(this.params);
         setup_chart(this.data);
+        setup_modal();
     }
 
     initialize(params) {
