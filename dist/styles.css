@@ -83,12 +83,20 @@ body {
 
 #title {
 	display: flex;
-	flex-direction: row;
-	padding: 10px;
+	align-items: center;
+	justify-content: space-between;
 }
 
-#title-text {
+#fishdiv {
+	display: flex;
+	align-items: center;
 	justify-content: center;
+}
+
+.fish {
+	position: absolute;
+	top: 150px;
+	right: 50px;
 }
 
 #display {
@@ -135,4 +143,38 @@ body {
 	color: #000;
 	text-decoration: none;
 	cursor: pointer;
+  }
+
+  #title-text {
+	height: 400px;  /* Set a specific height */
+	display: flex;  /* Use flexbox to align items */
+	flex-direction: column;  /* Align items vertically */
+	justify-content: center;  /* Center items vertically */
+  }
+  
+  #title-text .top {
+	position: absolute;  /* Remove from normal document flow */
+	top: 150px;
+	height: 50px;
+	width: 250px;
+	left: 50px;
+  }
+  
+  #title-text .above-center {
+	position: absolute;  /* Remove from normal document flow */
+	top: 200px;  /* Position above center */
+	left: 50px;
+  }
+  
+  #title-text .below-center {
+	position: absolute;  /* Remove from normal document flow */
+	top: 340px;  /* Position below center */
+	left: 50px;
+	color: gray;
+  }
+  
+  #title-text .bottom {
+	position: absolute;  /* Remove from normal document flow */
+	top: 460px;  /* Position at bottom of .container */
+	left: 50px;
   }

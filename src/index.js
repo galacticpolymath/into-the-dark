@@ -9,18 +9,18 @@ export default function title () {
 
     const introHTML = 
         `<div id="title">
-            <div id="title-text">
-                <h5>ASDF loaded from title.js</h5>
-                <h1>Swimming in the Dark</h1>
-                <h3>A simulation of fish schooling behavior</h3>
-                <h6>This Simulation Connects to Part 4 of GP's "Animal Collective" Lesson</h6>
-            </div>
-            <div id="fish">
-                
-                    <img src='./circle fish school.png' alt="fish collective behavior" width="400" height="400">
-                
-            </div>
-        </div>`;
+        <div id="title-text">
+            <img class='top' src="./gp_horiz_logo.png" alt="GP logo">
+            <h1 class='above-center' style='font-size:3em'>Swimming <br>in the Dark</h1>
+            <h3 class='below-center' style='font-size:2em'>A simulation of fish <br>schooling behavior</h3>
+            <h6 class='bottom'>This Simulation Connects to Part 4 of GP's "Animal Collective" Lesson</h6>
+        </div>
+        <div id="fishdiv">
+                <img src="./circle fish school.png" alt="fish collective behavior" 
+                    width="275" height="275"
+                    class='fish ma4'>
+        </div>
+    </div>`;
 
     div.innerHTML = introHTML;
 }   
@@ -49,13 +49,15 @@ function init () {
         <div id="sim" class="mw8 center cf">
             <div id="title">
                 <div id="title-text">
-                    <h5>ASDF loaded from index.html</h5>
-                    <h1>Swimming in the Dark</h1>
-                    <h3>A simulation of fish schooling behavior</h3>
-                    <h6>This Simulation Connects to Part 4 of GP's "Animal Collective" Lesson</h6>
+                    <img class='top' src="./gp_horiz_logo.png" alt="GP logo">
+                    <h1 class='above-center' style='font-size:3em'>Swimming <br>in the Dark</h1>
+                    <h3 class='below-center' style='font-size:2em'>A simulation of fish <br>schooling behavior</h3>
+                    <h6 class='bottom'>This Simulation Connects to Part 4 of GP's "Animal Collective" Lesson</h6>
                 </div>
-                <div id="fish">
-                        <img src="./circle fish school.png" alt="fish collective behavior" width="400" height="400">
+                <div id="fishdiv">
+                        <img src="./circle fish school.png" alt="fish collective behavior" 
+                            width="275" height="275"
+                            class='fish ma4'>
                 </div>
             </div>
         </div>
