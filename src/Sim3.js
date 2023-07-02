@@ -30,10 +30,13 @@ class Sim3 extends BasicSim {
                 to group together?');
 
         setup_sliders(this.params);
+        //document.getElementById('#controls').select('table').remove();
     }
 }
 
 export default function load () {
     document.getElementById("sim").innerHTML = '';
 	const sim = new Sim3();
+
+    return sim;
 }

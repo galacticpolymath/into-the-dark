@@ -3,7 +3,6 @@ import * as widgets from "d3-widgets"
 
 export default (sim) => {
     const params = sim.params;
-    let timer = {};
     const go_button = widgets.button().actions(["play","pause"])
     const buttons = [go_button];
     let reset_button;
@@ -22,9 +21,6 @@ export default (sim) => {
         .attr('transform','translate(250, 250)');
 
     go_button.update(()=> {
-        go_button.value() == 1 ? timer = d3.interval(()=>sim.go(), params.simulation.delay) : timer.stop()
+        go_button.value() == 1 ? sim.timer = d3.interval(()=>sim.go(), params.simulation.delay) : sim.timer.stop()
     })
-
-    
-    
 }

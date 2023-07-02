@@ -31,6 +31,7 @@ export default (agents) => {
         .style('background-color', 'Gainsboro')
         .style('color', 'black')
         .style("border", "1px solid Gray")
+        .attr('id', 'sim1-table')
     
     // Append the table header
     let thead = table.append('thead');

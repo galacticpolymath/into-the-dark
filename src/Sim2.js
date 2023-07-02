@@ -10,6 +10,7 @@ class Sim2 extends BasicSim {
         this.params = params;
 
         this.N = params.N;
+        
 
         d3.select('#controls')
             .style('height', '600px')
@@ -35,6 +36,7 @@ class Sim2 extends BasicSim {
                 2. How does Attraction Radius affect schooling behavior?');
 
         setup_sliders(this.params);
+        //document.getElementById('#controls').select('table').remove();
     }
 
     go() {
@@ -51,4 +53,6 @@ class Sim2 extends BasicSim {
 export default function load () {
     document.getElementById("sim").innerHTML = '';
 	const sim = new Sim2();
+
+    return sim;
 }

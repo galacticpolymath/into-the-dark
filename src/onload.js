@@ -1,9 +1,25 @@
 import logoPng from './gp_logo_gradient_transBG.png'
+import * as d3 from 'd3';
+
+let sim;
 
 function addBFListener (link, navLinks) {
     link.addEventListener('click', function(e) {
         const mode = +e.target.dataset.mode;
+
+        /*
+        const table = document.getElementById('sim1-table')
+        if (table) {
+            console.log(table)
+            table.innerHTML = '';
+            table.remove();
+        }
+        */
+        
+
         e.preventDefault();
+
+        console.log('addbflistener', navLinks)
 
         if (!navLinks) {
             console.log('navLinks', navLinks)
@@ -23,9 +39,19 @@ function addBFListener (link, navLinks) {
 
 window.onload = function() {
     const navLinks = document.getElementsByClassName("nav-link");
+    console.log('top level onload', navLinks)
 
     for (var i = 0; i < navLinks.length; i++) {
         navLinks[i].addEventListener("click", function(e) {
+            /*
+            const table = document.getElementById('sim1-table')
+            if (table) {
+                console.log(table)
+                table.innerHTML = '';
+                table.remove();
+            }
+            */
+
             e.preventDefault();
             loadModule(+e.target.dataset.mode);
 
@@ -39,6 +65,7 @@ window.onload = function() {
     }
 
     const bfLinks = document.getElementById('backnext').children;
+    console.log('top level right before addbflistener', bfLinks)
 
     for (var i = 0; i < bfLinks.length; i++) {
         addBFListener(bfLinks[i], navLinks)
@@ -102,6 +129,9 @@ function backNextLinks(mode, navLinks) {
 }
 
 function loadModule(mode) {
+    if (sim && sim.timer.stop) {
+        sim.timer.stop()
+    }
     if (typeof mode !== 'number' || mode < 0 || mode > 5) {
         throw new Error('Invalid value for mode');
     }
@@ -121,7 +151,7 @@ function loadModule(mode) {
     else if (mode === 1) {
         import('./Sim1.js')
             .then((module) => {
-                module.default();
+                sim = module.default();
             })
             .catch((error) => {
                 console.error(`Error loading module ${mode}: ${error}`);
@@ -130,7 +160,7 @@ function loadModule(mode) {
     else if (mode === 2) {
         import('./Sim2.js')
             .then((module) => {
-                module.default();
+                sim = module.default();
             })
             .catch((error) => {
                 console.error(`Error loading module ${mode}: ${error}`);
@@ -139,7 +169,7 @@ function loadModule(mode) {
     else if (mode === 3) {
         import('./Sim3.js')
             .then((module) => {
-                module.default();
+                sim = module.default();
             })
             .catch((error) => {
                 console.error(`Error loading module ${mode}: ${error}`);
@@ -148,7 +178,7 @@ function loadModule(mode) {
     else if (mode === 4) {
         import('./Sim4.js')
             .then((module) => {
-                module.default();
+                sim = module.default();
             })
             .catch((error) => {
                 console.error(`Error loading module ${mode}: ${error}`);
@@ -157,7 +187,7 @@ function loadModule(mode) {
     else if (mode === 5) {
         import('./Sim5.js')
             .then((module) => {
-                module.default();
+                sim = module.default();
             })
             .catch((error) => {
                 console.error(`Error loading module ${mode}: ${error}`);

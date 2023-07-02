@@ -25,6 +25,7 @@ class Sim5 extends BasicSim {
         setup_sliders(this.params);
         setup_chart(this.data);
         setup_modal();
+        //document.getElementById('#controls').select('table').remove();
     }
 
     initialize(params) {
@@ -55,4 +56,6 @@ class Sim5 extends BasicSim {
 export default function load () {
     document.getElementById("sim").innerHTML = '';
 	const sim = new Sim5();
+
+    return sim;
 }

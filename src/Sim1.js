@@ -9,6 +9,7 @@ class Sim1 extends BasicSim {
         const params = parameters.mode1;
         super(params);
         this.params = params;
+        
 
         d3.select("#controls")
             .style("height", "450px")
@@ -23,6 +24,8 @@ class Sim1 extends BasicSim {
             Try changing the speed with the slider below.');
 
         setup_sliders(this.params);
+
+        
 
         setup_table(this.agents);
             
@@ -107,5 +110,5 @@ export default function load () {
     document.getElementById("sim").innerHTML = '';
 	const sim = new Sim1();
 
-    return;
+    return sim;
 }

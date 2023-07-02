@@ -29,10 +29,13 @@ class Sim4 extends BasicSim {
             the time in the dark for an average fish?');
     
         setup_sliders(this.params);
+        //document.getElementById('#controls').select('table').remove();
     }
 }
 
 export default function load () {
     document.getElementById("sim").innerHTML = '';
 	const sim = new Sim4();
+
+    return sim;
 }
