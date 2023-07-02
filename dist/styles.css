@@ -85,6 +85,7 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	width: 800px;
 }
 
 #fishdiv {
@@ -94,9 +95,9 @@ body {
 }
 
 .fish {
-	position: absolute;
-	top: 150px;
-	right: 50px;
+	position: relative;
+	top: 0px;
+	right: 20px;
 }
 
 #display {
@@ -153,28 +154,28 @@ body {
   }
   
   #title-text .top {
-	position: absolute;  /* Remove from normal document flow */
-	top: 150px;
+	position: relative;  /* Remove from normal document flow */
+	top: 0px;
 	height: 50px;
 	width: 250px;
 	left: 50px;
   }
   
   #title-text .above-center {
-	position: absolute;  /* Remove from normal document flow */
-	top: 200px;  /* Position above center */
+	position: relative;  /* Remove from normal document flow */
+	top: 30px;  /* Position above center */
 	left: 50px;
   }
   
   #title-text .below-center {
-	position: absolute;  /* Remove from normal document flow */
-	top: 340px;  /* Position below center */
+	position: relative;  /* Remove from normal document flow */
+	top: 15px;  /* Position below center */
 	left: 50px;
 	color: gray;
   }
   
   #title-text .bottom {
-	position: absolute;  /* Remove from normal document flow */
-	top: 460px;  /* Position at bottom of .container */
+	position: relative;  /* Remove from normal document flow */
+	top: 50px;  /* Position at bottom of .container */
 	left: 50px;
   }
