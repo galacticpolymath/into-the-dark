@@ -1,117 +1,73 @@
 import logoPng from './gp_logo_gradient_transBG.png'
 import * as d3 from 'd3';
+import {each} from 'lodash-es'
 
 let sim;
 
-function addBFListener (link, navLinks) {
-    link.addEventListener('click', function(e) {
+window.onload = function() {
+    const navLinks = document.getElementsByClassName("nav-link");
+
+    for (var i = 0; i < navLinks.length; i++) {
+        navLinks[i].addEventListener("click", function(e) {
+            e.preventDefault();
+            switchActive(this, navLinks);
+            loadModule(+e.target.dataset.mode);
+        });
+    }
+
+    const next = document.getElementById('first-next'); // only first link has id due to fix bug
+    addBFListener(next, navLinks);
+}
+
+function switchActive (node, navLinks) {
+    for (var j = 0; j < navLinks.length; j++) {
+        navLinks[j].classList.remove('active-link');
+    }
+    node.classList.add('active-link');
+}
+
+function addBFListener (node, navLinks) {
+    // add on-click to back/next buttons- navigation and active link highlighting
+    node.addEventListener('click', function(e) {
+        if (navLinks === undefined) {throw new Error('navLinks undefined')};
         const mode = +e.target.dataset.mode;
-
-        /*
-        const table = document.getElementById('sim1-table')
-        if (table) {
-            console.log(table)
-            table.innerHTML = '';
-            table.remove();
-        }
-        */
-        
-
         e.preventDefault();
 
-        console.log('addbflistener', navLinks)
-
-        if (!navLinks) {
-            console.log('navLinks', navLinks)
-            throw new Error('navLinks undefined');
-        }
-
-        for (var j = 0; j < navLinks.length; j++) {
-            navLinks[j].classList.remove('active-link');
-        }
-
-        // Add the active class to the clicked link
-        document.getElementById('nav').children[mode + 1].classList.add('active-link');
+        const activeNode = document.getElementById('nav').children[mode + 1]
+        switchActive(activeNode, navLinks);
 
         loadModule(mode);
     });
 }
 
-window.onload = function() {
-    const navLinks = document.getElementsByClassName("nav-link");
-    console.log('top level onload', navLinks)
-
-    for (var i = 0; i < navLinks.length; i++) {
-        navLinks[i].addEventListener("click", function(e) {
-            /*
-            const table = document.getElementById('sim1-table')
-            if (table) {
-                console.log(table)
-                table.innerHTML = '';
-                table.remove();
-            }
-            */
-
-            e.preventDefault();
-            loadModule(+e.target.dataset.mode);
-
-            for (var j = 0; j < navLinks.length; j++) {
-                navLinks[j].classList.remove('active-link');
-            }
-    
-            // Add the active class to the clicked link
-            this.classList.add('active-link');
-        });
-    }
-
-    const bfLinks = document.getElementById('backnext').children;
-    console.log('top level right before addbflistener', bfLinks)
-
-    for (var i = 0; i < bfLinks.length; i++) {
-        addBFListener(bfLinks[i], navLinks)
-    }
-}
-
 function backNextLinks(mode, navLinks) {
+    if (!navLinks) {throw new Error('navLinks undefined')};
+
     const back = document.getElementById('back');
     const next = document.getElementById('next');
-
     if (back) {back.remove()}
     if (next) {next.remove()}
+    const backnext = document.getElementById('backnext');
 
-    const backnext = document.getElementById('backnext')
-
-    if (!navLinks) {
-        console.log('navLinks', navLinks)
-        throw new Error('navLinks undefined');
-    }
-
-    // Add next link first (because of float right)
+    // Add Next link first (because of float right)
     if (mode < 5) {
         let newDiv = document.createElement("div");
         let newLink = document.createElement("a");
-
-        // Set their properties
         newDiv.className = "fr ph3 pv1 ba mr5";
         newDiv.id = 'next';
         newLink.href = "#";
-        newLink.dataset.mode = `${mode+1}`; // This sets a data attribute
+        newLink.dataset.mode = `${mode+1}`;
         newLink.textContent = "Next";
 
-        // Append the link to the div
         newDiv.appendChild(newLink);
-
-        // Now you can append the new div to a parent node. For example, to append to the body:
         backnext.appendChild(newDiv);
-        addBFListener(document.getElementById('next'), navLinks);   
+        addBFListener(document.getElementById('next').firstChild, navLinks);   
     }
 
-    // Add back link
+    // Add Back link
     if (mode > 0) {
         let newDiv = document.createElement("div");
         let newLink = document.createElement("a");
-
-        // Set their properties
         newDiv.className = "fr ph3 pv1 ba mr4 bg-dark-gray";
         newDiv.id = 'back';
         newLink.href = "#";
@@ -119,26 +75,25 @@ function backNextLinks(mode, navLinks) {
         newLink.dataset.mode = `${mode-1}`; // This sets a data attribute
         newLink.textContent = "Back";
 
-        // Append the link to the div
         newDiv.appendChild(newLink);
-
-        // Now you can append the new div to a parent node. For example, to append to the body:
         backnext.appendChild(newDiv);
-        addBFListener(document.getElementById('back'), navLinks);
+        addBFListener(document.getElementById('back').firstChild, navLinks);
     }
 }
 
 function loadModule(mode) {
-    if (sim && sim.timer.stop) {
-        sim.timer.stop()
-    }
     if (typeof mode !== 'number' || mode < 0 || mode > 5) {
         throw new Error('Invalid value for mode');
     }
 
-    const navLinks = document.getElementsByClassName("nav-link");
+    // stop any prev d3 simulation ticking (or weird side effects happen)
+    if (sim && sim.timer.stop) {
+        sim.timer.stop()
+    }
 
+    const navLinks = document.getElementsByClassName("nav-link");
     backNextLinks(mode, navLinks);
+
     if (mode === 0) {
         import('./index.js')
             .then((module) => {
@@ -148,44 +103,8 @@ function loadModule(mode) {
                 console.error(`Error loading module ${mode}: ${error}`);
             });
     }
-    else if (mode === 1) {
-        import('./Sim1.js')
-            .then((module) => {
-                sim = module.default();
-            })
-            .catch((error) => {
-                console.error(`Error loading module ${mode}: ${error}`);
-            });
-    }
-    else if (mode === 2) {
-        import('./Sim2.js')
-            .then((module) => {
-                sim = module.default();
-            })
-            .catch((error) => {
-                console.error(`Error loading module ${mode}: ${error}`);
-            });
-    }
-    else if (mode === 3) {
-        import('./Sim3.js')
-            .then((module) => {
-                sim = module.default();
-            })
-            .catch((error) => {
-                console.error(`Error loading module ${mode}: ${error}`);
-            });
-    }
-    else if (mode === 4) {
-        import('./Sim4.js')
-            .then((module) => {
-                sim = module.default();
-            })
-            .catch((error) => {
-                console.error(`Error loading module ${mode}: ${error}`);
-            });
-    }
-    else if (mode === 5) {
-        import('./Sim5.js')
+    else {
+        import(`./Sim${mode}.js`)
             .then((module) => {
                 sim = module.default();
             })
