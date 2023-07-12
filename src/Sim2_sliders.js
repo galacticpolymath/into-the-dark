@@ -8,8 +8,11 @@ export default (params) => {
     const slider_spacing = 90;
     const slider_width = 410;
 
-    const go_button = d3.select('#controls').select('.button')
-        .attr('transform', `translate(${slider_width / 2 + 10}, ${params.widgets.playbutton_size/2 + 5})`)
+    const go_button = d3.select('#controls').select('svg').select('g:nth-child(1)')
+        .attr('transform', `translate(${slider_width / 2 - 40}, ${params.widgets.playbutton_size/2 + 3})`)
+
+    const reset_button = d3.select('#controls').select('svg').select('g:nth-child(2)')
+        .attr('transform', `translate(${slider_width / 2 + 40}, ${params.widgets.playbutton_size/2 + 3})`)
 
     const n_slider = sliderHorizontal().min(1).max(30).step(1).width(slider_width - 20)
         .tickValues([1, 15, 30])
