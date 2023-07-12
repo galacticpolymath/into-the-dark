@@ -17,6 +17,7 @@ export default (params) => {
 
     const ar_slider = sliderHorizontal().min(0).max(10).step(1).width(slider_width - 20)
         .tickValues([0, 5, 10])
+        .value(0)
         //.displayValue(false)
         .on('onchange', (val) => {
             params.attraction_radius = val * 5;
@@ -34,9 +35,10 @@ export default (params) => {
 
     const al_slider = sliderHorizontal().min(0).max(10).step(1).width(slider_width - 20)
         .tickValues([0, 5, 10])
+        .value(0)
         //.displayValue(false)
         .on('onchange', (val) => {
-            params.alignment_radius = val / 2;
+            params.alignment_radius = val / 2.5;
         });
 
     const al = svg.append('g')

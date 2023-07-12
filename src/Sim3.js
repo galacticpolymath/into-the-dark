@@ -25,7 +25,8 @@ class Sim3 extends BasicSim {
                 predators to lock onto a single target. But schooling is not just <br/>\
                 about following, but how well you align with other fish in your <br/>\
                 group.<p/>\
-                Explore how <i>Alignment</i> affects schooling behavior.<p/>\
+                Explore how <i>Alignment</i> affects schooling behavior. <i>It may <br/>\
+                take a few seconds for group behavior to coalesce!</i><p/>\
                 <b>Questions</b>:<p/>\
                 Does one of these variables alone seem to cause schooling, <br/>\
                 or is there a combination that works best to cause the fish <br/>\
