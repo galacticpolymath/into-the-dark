@@ -13,6 +13,7 @@ export default (params) => {
 
     const n_slider = sliderHorizontal().min(1).max(30).step(1).width(slider_width - 20)
         .tickValues([1, 15, 30])
+        .value(1)
         //.displayValue(false)
         .on('onchange', (val) => {
             params.N = val;
@@ -30,6 +31,7 @@ export default (params) => {
 
     const ar_slider = sliderHorizontal().min(0).max(10).step(1).width(slider_width - 20)
         .tickValues([0, 5, 10])
+        .value(0)
         //.displayValue(false)
         .on('onchange', (val) => {
             params.attraction_radius = val * 4;

@@ -8,6 +8,8 @@ class Sim2 extends BasicSim {
         const params = parameters.mode2;
         super(params);
         this.params = params;
+        params.N = params.N_def;
+        params.alignment_radius = params.ar_def;
 
         this.N = params.N;
         

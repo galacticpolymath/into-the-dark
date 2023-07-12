@@ -8,6 +8,8 @@ class Sim3 extends BasicSim {
         const params = parameters.mode3;
         super(params);
         this.params = params;
+        params.alignment_radius = params.al_def;
+        params.attraction_radius = params.ar_def;
 
         d3.select('#controls')
             .style('height', '550px')

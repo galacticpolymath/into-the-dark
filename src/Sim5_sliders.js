@@ -19,20 +19,22 @@ export default (params) => {
     const ticks = ['Much Greater', 'Equal', 'Much Greater']
 
     for (let i = 0; i < 3; i++) {
-        g.append("rect")
+        // light to dark shading
+        g.append("rect") 
             .attr('width', slider_width)
             .attr('height', 30)
             .attr('x', -10)
             .attr('y', slider_spacing * i + 10)
             .attr("fill", "url(#svgGradient)")
 
+        // ticks
         for (let j = 0; j < 5; j++) {
             g.append('line')
                 .style('stroke-width', 1)
                 .style('stroke', 'darkgray')
-                .attr('x1', -10 + j * slider_width / 4)
+                .attr('x1', j * (slider_width - 20) / 4)
                 .attr('y1', slider_spacing * i + 40)
-                .attr('x2', -10 + j * slider_width / 4)
+                .attr('x2', j * (slider_width - 20) / 4)
                 .attr('y2', slider_spacing * i + 50)
         }
 
@@ -74,15 +76,21 @@ export default (params) => {
     // Speed
     const s_max = 1.5;
     const s_min = .5;
-  
+    const s_slider_max = 4;
+    const s_slider_min = 0;
+    const s_slider_mid = (s_slider_max - s_slider_min) / 2;
+    const s_slider_step = (s_slider_max - s_slider_min) / 4;
 
-    const speed_slider = sliderHorizontal().min(0).max(10).step(1).width(slider_width - 20)
-        .value(5)
+    const speed_slider = sliderHorizontal()
+        .min(s_slider_min).max(s_slider_max)
+        .step(s_slider_step)
+        .width(slider_width - 20)
+        .value(s_slider_mid)
         .displayValue(false)
         .tickValues([])
         .on('onchange', (val) => {
-            params.speed_in_the_light = s_max - val / 10;
-            params.speed_in_the_dark = s_min + val / 10;
+            params.speed_in_the_light = s_max - val / s_slider_max;
+            params.speed_in_the_dark = s_min + val / s_slider_max;
         });
 
     const speed = g.append('g')
@@ -93,18 +101,27 @@ export default (params) => {
     // Alignment Radius
     const al_max = 4;
     const al_min = 0;
+    const al_slider_max = 2;
+    const al_slider_min = 0;
+    const al_slider_mid = (al_slider_max - al_slider_min) / 2;
+    const al_slider_step = (al_slider_max - al_slider_min) / 4;
 
-    const al_slider = sliderHorizontal().min(0).max(10).step(1).width(slider_width - 20)
+    const al_slider = sliderHorizontal()
+        .min(al_slider_min).max(al_slider_max)
+        .step(al_slider_step)
+        .width(slider_width - 20)
         .tickValues([])
-        .value(5)
+        .value(al_slider_mid)
         .displayValue(false)
         .on('onchange', (val) => {
-            if (val <= 4) {
+            if (val < al_slider_mid) {
                 params.alignment_radius = al_max;
-                params.dark_al = al_min + (al_max - al_min) * val / 5;    
+                params.dark_al = al_min + 
+                    (al_max - al_min) * ((val - al_slider_mid) / al_slider_mid);    
             }
-            else if (val >= 6) {
-                params.alignment_radius = al_max - (val - 5) * (al_max - al_min) / 5;
+            else if (val > al_slider_mid) {
+                params.alignment_radius = al_max - 
+                    (al_max - al_min) * ((val - al_slider_mid) / al_slider_mid);
                 params.dark_al = al_max;
             }
             else {
@@ -120,18 +137,27 @@ export default (params) => {
     // Attraction Radius
     const ar_max = 80;
     const ar_min = 5;
+    const ar_slider_max = 4;
+    const ar_slider_min = 0;
+    const ar_slider_mid = (ar_slider_max - ar_slider_min) / 2;
+    const ar_slider_step = (ar_slider_max - ar_slider_min) / 4;
 
-    const ar_slider = sliderHorizontal().min(0).max(10).step(1).width(slider_width - 20)
+    const ar_slider = sliderHorizontal()
+        .min(ar_slider_min).max(ar_slider_max)
+        .step(ar_slider_step)
+        .width(slider_width - 20)
         .tickValues([])
-        .value(5)
+        .value(ar_slider_mid)
         .displayValue(false)
         .on('onchange', (val) => {
-            if (val <= 4) {
+            if (val <= ar_slider_mid) {
                 params.attraction_radius = ar_max;
-                params.dark_ar = ar_min + (ar_max-ar_min) * val / 5;    
+                params.dark_ar = ar_min + 
+                    (ar_max - ar_min) * (val / ar_slider_mid);    
             }
-            else if (val >= 6) {
-                params.attraction_radius = ar_max - (val - 5) * (ar_max-ar_min) / 5;
+            else if (val >= ar_slider_mid) {
+                params.attraction_radius = ar_max - 
+                    (ar_max - ar_min) * ((val - ar_slider_mid) / ar_slider_mid);
                 params.dark_ar = ar_max;
             }
             else {
