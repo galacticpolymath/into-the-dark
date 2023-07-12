@@ -6,14 +6,14 @@ import parameters from './parameters'
 class Sim4 extends BasicSim {
     constructor () {
         const params = parameters.mode4;
-        super(params);
-        this.params = params;
         params.alignment_radius = params.al_def;
         params.dark_al = params.al_def;
         params.attraction_radius = params.ar_def;
         params.dark_ar = params.ar_def;
         params.speed_in_the_dark = params.speed_def;
         params.speed_in_the_light = params.speed_def;
+        super(params);
+        this.params = params;
 
         d3.select("#controls")
             .style("height", "650px")
@@ -34,7 +34,7 @@ class Sim4 extends BasicSim {
             <b>Question</b>: How can you configure the sliders below to maximize <br/>\
             the time in the dark for an average fish?');
 
-        setup_sliders(this.params);
+        setup_sliders(params);
     }
 }
 

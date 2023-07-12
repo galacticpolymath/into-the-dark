@@ -8,19 +8,20 @@ import setup_modal from './Sim5_modal'
 class Sim5 extends BasicSim {
     constructor () {
         const params = parameters.mode5;
-        super(params);
-        this.params = params;
-        this.total = 0;
-        this.mean_hidden = 0;
-        this.best_score = 0;
-        this.data = new Array(1000).fill(0);
-
         params.alignment_radius = params.al_def;
         params.dark_al = params.al_def;
         params.attraction_radius = params.ar_def;
         params.dark_ar = params.ar_def;
         params.speed_in_the_dark = params.speed_def;
         params.speed_in_the_light = params.speed_def;
+        super(params);
+        this.params = params;
+
+        this.params = params;
+        this.total = 0;
+        this.mean_hidden = 0;
+        this.best_score = 0;
+        this.data = new Array(1000).fill(0);
 
         d3.select("#controls")
             .style("height", "570px")

@@ -6,13 +6,12 @@ import parameters from './parameters'
 class Sim2 extends BasicSim {
     constructor () {
         const params = parameters.mode2;
+        params.N = params.N_def;
+        params.attraction_radius = params.ar_def;
         super(params);
         this.params = params;
-        params.N = params.N_def;
-        params.alignment_radius = params.ar_def;
 
         this.N = params.N;
-        
 
         d3.select('#controls')
             .style('height', '600px')
@@ -37,7 +36,7 @@ class Sim2 extends BasicSim {
                 for which schooling behavior emerges? <p/>\
                 2. How does Attraction Radius affect schooling behavior?');
 
-        setup_sliders(this.params);
+        setup_sliders(params);
         //document.getElementById('#controls').select('table').remove();
     }
 
