@@ -22,6 +22,13 @@ class Sim5 extends BasicSim {
         this.mean_hidden = 0;
         this.best_score = 0;
         this.data = new Array(1000).fill(0);
+        this.ticks = 1;
+        this.avg_ar = 2;
+        this.avg_al = 1;
+        this.avg_s = 2;
+        this.avg_ar_slider = 2;
+        this.avg_al_slider = 2;
+        this.avg_s_slider = 2;
 
         d3.select("#controls")
             .style("height", "570px")
@@ -30,7 +37,8 @@ class Sim5 extends BasicSim {
             .style("width", "450px")
             .attr("viewBox", `0 0 450 420`);
 
-        setup_sliders(this.params);
+        this.sliders = setup_sliders(this.params);
+
         setup_chart(this.data);
         setup_modal();
     }
@@ -53,7 +61,7 @@ class Sim5 extends BasicSim {
         this.total -= this.data[0]
         this.mean_hidden = this.total / 1000;
 
-        chart_tick(this.data, frac_hidden, this.mean_hidden, this.best_score);
+        chart_tick(this, frac_hidden);
         this.best_score = Math.max(this.best_score, this.mean_hidden);
     }
 }

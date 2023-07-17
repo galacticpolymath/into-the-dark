@@ -65,7 +65,7 @@ export default (params) => {
     .attr("id", "svgGradient")
     .attr("x1", "0%")
     .attr("x2", "100%")
-    .attr("y1", "0%")
+    .attr("y1", "100%")
     .attr("y2", "100%");
     
     gradient.append("stop")
@@ -81,8 +81,6 @@ export default (params) => {
     .attr("stop-opacity", 1);
 
     // Speed
-    const s_max = 1.5;
-    const s_min = .5;
     const s_slider_max = 4;
     const s_slider_min = 0;
     const s_slider_mid = (s_slider_max - s_slider_min) / 2;
@@ -96,8 +94,8 @@ export default (params) => {
         .displayValue(false)
         .tickValues([])
         .on('onchange', (val) => {
-            params.speed_in_the_light = s_max - val / s_slider_max;
-            params.speed_in_the_dark = s_min + val / s_slider_max;
+            params.speed_in_the_light = params.s_max - val / s_slider_max;
+            params.speed_in_the_dark = params.s_min + val / s_slider_max;
         });
 
     const speed = g.append('g')
@@ -106,8 +104,6 @@ export default (params) => {
 
 
     // Alignment Radius
-    const al_max = 4;
-    const al_min = 0;
     const al_slider_max = 2;
     const al_slider_min = 0;
     const al_slider_mid = (al_slider_max - al_slider_min) / 2;
@@ -122,18 +118,18 @@ export default (params) => {
         .displayValue(false)
         .on('onchange', (val) => {
             if (val < al_slider_mid) {
-                params.alignment_radius = al_max;
-                params.dark_al = al_min + 
-                    (al_max - al_min) * ((val - al_slider_mid) / al_slider_mid);    
+                params.alignment_radius = params.al_max;
+                params.dark_al = params.al_min + 
+                    (params.al_max - params.al_min) * ((val - al_slider_mid) / al_slider_mid);    
             }
             else if (val > al_slider_mid) {
-                params.alignment_radius = al_max - 
-                    (al_max - al_min) * ((val - al_slider_mid) / al_slider_mid);
-                params.dark_al = al_max;
+                params.alignment_radius = params.al_max - 
+                    (params.al_max - params.al_min) * ((val - al_slider_mid) / al_slider_mid);
+                params.dark_al = params.al_max;
             }
             else {
-                params.alignment_radius = al_max;
-                params.dark_al = al_max;
+                params.alignment_radius = params.al_max;
+                params.dark_al = params.al_max;
             }
         });
 
@@ -142,8 +138,6 @@ export default (params) => {
         .attr('transform', `translate(0, ${slider_spacing + 40})`)
 
     // Attraction Radius
-    const ar_max = 60;
-    const ar_min = 5;
     const ar_slider_max = 4;
     const ar_slider_min = 0;
     const ar_slider_mid = (ar_slider_max - ar_slider_min) / 2;
@@ -158,25 +152,26 @@ export default (params) => {
         .displayValue(false)
         .on('onchange', (val) => {
             if (val <= ar_slider_mid) {
-                params.attraction_radius = ar_max;
-                params.dark_ar = ar_min + 
-                    (ar_max - ar_min) * (val / ar_slider_mid);    
+                params.attraction_radius = params.ar_max;
+                params.dark_ar = params.ar_min + 
+                    (params.ar_max - params.ar_min) * (val / ar_slider_mid);    
             }
             else if (val >= ar_slider_mid) {
-                params.attraction_radius = ar_max - 
-                    (ar_max - ar_min) * ((val - ar_slider_mid) / ar_slider_mid);
-                params.dark_ar = ar_max;
+                params.attraction_radius = params.ar_max - 
+                    (params.ar_max - params.ar_min) * ((val - ar_slider_mid) / ar_slider_mid);
+                params.dark_ar = params.ar_max;
             }
             else {
-                params.attraction_radius = ar_max;
-                params.dark_ar = ar_max;
+                params.attraction_radius = params.ar_max;
+                params.dark_ar = params.ar_max;
             }
         });
 
     const ar = g.append('g')
         .call(ar_slider)
         .attr('transform', `translate(0, ${slider_spacing * 2 + 40})`)
-        
+    
+    return {speed_slider, ar_slider, al_slider};
 }
 
 

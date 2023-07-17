@@ -72,13 +72,13 @@ export function setup_chart(data) {
 
     // High score text
     svg.append('text')
-        .attr('id', 'highscore-label')
+        .attr('id', 'high-label')
         .attr('x', 275)
         .attr('y', 150)
-        .text('High Score: ')
+        .text('High: ')
     svg.append('text')
-        .attr('id', 'highscore')
-        .attr('x', 360)
+        .attr('id', 'high')
+        .attr('x', 320)
         .attr('y', 150)
         .text('0%')
 
@@ -108,7 +108,27 @@ export function setup_chart(data) {
 }
 
 
-export function chart_tick(data, val, avg, best) {
+const new_avg = (old_avg, new_val, ticks) => {
+    const avg = (old_avg * (ticks - 1) + new_val) / ticks;
+    return avg;
+}
+
+const slider_setting = d3.scaleLinear()
+    .domain([0, 4])
+    .range([-1, 1]);
+
+export function chart_tick(sim, val) {
+    const avg = sim.mean_hidden;
+    const best = sim.best_score;
+    const data = sim.data;    
+
+    sim.ticks += 1;
+    sim.avg_s = new_avg(sim.avg_s, sim.sliders.speed_slider.value(), sim.ticks);
+    sim.avg_ar = new_avg(sim.avg_ar, sim.sliders.ar_slider.value(), sim.ticks);
+    sim.avg_al = new_avg(sim.avg_al, sim.sliders.al_slider.value(), sim.ticks);
+    sim.avg_ar_slider = slider_setting(sim.avg_ar);
+    sim.avg_al_slider = slider_setting(sim.avg_al * 2);
+    sim.avg_s_slider = slider_setting(sim.avg_s);
 
     // Push a new data point onto the back.
     data.push(val);
@@ -124,7 +144,7 @@ export function chart_tick(data, val, avg, best) {
         d3.select('#best-line')
             .attr('y1', y(avg))
             .attr('y2', y(avg));
-        d3.select('#highscore')
+        d3.select('#high')
             .text(perc(avg.toFixed(2)))
     }
 
