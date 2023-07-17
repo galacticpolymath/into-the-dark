@@ -70,15 +70,39 @@ export function setup_chart(data) {
         .attr('x2', width)
         .attr('y2', y(0))
 
+    // High score text
     svg.append('text')
         .attr('id', 'highscore-label')
-        .attr('x', 50)
+        .attr('x', 275)
         .attr('y', 150)
         .text('High Score: ')
-
     svg.append('text')
         .attr('id', 'highscore')
-        .attr('x', 140)
+        .attr('x', 360)
+        .attr('y', 150)
+        .text('0%')
+
+    // Running average text
+    svg.append('text')
+        .attr('id', 'running-avg-label')
+        .attr('x', 160)
+        .attr('y', 150)
+        .text('Average:')
+    svg.append('text')
+        .attr('id', 'running-avg')
+        .attr('x', 225)
+        .attr('y', 150)
+        .text('0%')
+
+    // Running average text
+    svg.append('text')
+        .attr('id', 'current-label')
+        .attr('x', 50)
+        .attr('y', 150)
+        .text('Current:')
+    svg.append('text')
+        .attr('id', 'current')
+        .attr('x', 110)
         .attr('y', 150)
         .text('0%')
 }
@@ -103,11 +127,15 @@ export function chart_tick(data, val, avg, best) {
         d3.select('#highscore')
             .text(perc(avg.toFixed(2)))
     }
-    if (avg > 1) {console.log(avg)};
 
     d3.select('#avg-line')
         .attr('y1', y(avg))
         .attr('y2', y(avg));
+    d3.select('#running-avg')
+        .text(perc(avg.toFixed(2)))
+
+    d3.select('#current')
+        .text(perc(val.toFixed(2)))
         
     // Pop the old data point off the front.
     data.shift();

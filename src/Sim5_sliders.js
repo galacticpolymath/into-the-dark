@@ -142,7 +142,7 @@ export default (params) => {
         .attr('transform', `translate(0, ${slider_spacing + 40})`)
 
     // Attraction Radius
-    const ar_max = 80;
+    const ar_max = 60;
     const ar_min = 5;
     const ar_slider_max = 4;
     const ar_slider_min = 0;
