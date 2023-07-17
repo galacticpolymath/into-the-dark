@@ -3,7 +3,7 @@ import {sliderHorizontal} from 'd3-simple-slider';
 
 export default (params) => {
     const sliders_y = 100;
-    const slider_spacing = 90;
+    const slider_spacing = 100;
     const slider_width = 410;
 
     const go_button = d3.select('#controls').select('svg').select('g:nth-child(1)')
@@ -22,9 +22,9 @@ export default (params) => {
         // light to dark shading
         g.append("rect") 
             .attr('width', slider_width)
-            .attr('height', 30)
+            .attr('height', 40)
             .attr('x', -10)
-            .attr('y', slider_spacing * i + 10)
+            .attr('y', slider_spacing * i)
             .attr("fill", "url(#svgGradient)")
 
         // ticks
@@ -38,16 +38,23 @@ export default (params) => {
                 .attr('y2', slider_spacing * i + 50)
         }
 
-        g.append('text').text('In the Light').attr('x', 0).attr('y', slider_spacing * i + 30).attr('text-anchor', 'start')
-        g.append('text').text('In the Dark').attr('x', slider_width - 20).attr('y', slider_spacing * i + 30).attr('text-anchor', 'end')
-        g.append('text').text(ticks[0]).attr('x', 10).attr('y', slider_spacing * i + 62).style("font-size", "12px").attr('text-anchor', 'start')
-        g.append('text').text(ticks[1]).attr('x', slider_width/2 - 10).attr('y', slider_spacing * i + 62).style("font-size", "12px").attr('text-anchor', 'middle')
-        g.append('text').text(ticks[2]).attr('x', slider_width - 40).attr('y', slider_spacing * i + 62).style("font-size", "12px").attr('text-anchor', 'end')
+        g.append('text').text('Light').attr('x', 0).attr('y', slider_spacing * i + 18).attr('text-anchor', 'start')
+        g.append('text').text('Dark').attr('x', slider_width - 18).attr('y', slider_spacing * i + 18).attr('text-anchor', 'end').attr('fill', 'white')
+        
+        g.append('text').text(ticks[0]).attr('x', 10).attr('y', slider_spacing * i + 65).style("font-size", "12px").attr('text-anchor', 'start')
+        g.append('text').text(ticks[1]).attr('x', slider_width/2 - 10).attr('y', slider_spacing * i + 65).style("font-size", "12px").attr('text-anchor', 'middle')
+        g.append('text').text(ticks[2]).attr('x', slider_width - 30).attr('y', slider_spacing * i + 65).style("font-size", "12px").attr('text-anchor', 'end')
+        
+        g.append('text').text('-1').attr('x', -5).attr('y', slider_spacing * i + 33).style("font-size", "12px").attr('text-anchor', 'start')//.attr('fill', 'white')
+        g.append('text').text('-0.5').attr('x', slider_width/4 - 7).attr('y', slider_spacing * i + 33).style("font-size", "12px").attr('text-anchor', 'middle').attr('fill', 'black')
+        g.append('text').text('0').attr('x', slider_width/2 - 9).attr('y', slider_spacing * i + 33).style("font-size", "12px").attr('text-anchor', 'middle').attr('fill', 'black')
+        g.append('text').text('+0.5').attr('x', slider_width * 3/4 - 6).attr('y', slider_spacing * i + 33).style("font-size", "12px").attr('text-anchor', 'end').attr('fill', 'white')
+        g.append('text').text('+1').attr('x', slider_width - 16).attr('y', slider_spacing * i + 33).style("font-size", "12px").attr('text-anchor', 'end').attr('fill', 'white')
 
         const labels = ['Relative Speed', 'Relative Alignment Radius', 'Relative Attraction Radius']
-        g.append('text').text(labels[0]).attr('x', slider_width/2 - 10).attr('text-anchor', 'middle');
-        g.append('text').text(labels[1]).attr('x', slider_width/2 - 10).attr('y', slider_spacing).attr('text-anchor', 'middle');
-        g.append('text').text(labels[2]).attr('x', slider_width/2 - 10).attr('y', slider_spacing * 2).attr('text-anchor', 'middle');
+        g.append('text').text(labels[0]).attr('x', slider_width/2 - 10).attr('y', -5).attr('text-anchor', 'middle');
+        g.append('text').text(labels[1]).attr('x', slider_width/2 - 10).attr('y', slider_spacing - 5).attr('text-anchor', 'middle');
+        g.append('text').text(labels[2]).attr('x', slider_width/2 - 10).attr('y', slider_spacing * 2 - 5).attr('text-anchor', 'middle');
     }
 
     
