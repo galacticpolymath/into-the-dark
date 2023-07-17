@@ -33,7 +33,6 @@ class Sim5 extends BasicSim {
         setup_sliders(this.params);
         setup_chart(this.data);
         setup_modal();
-        //document.getElementById('#controls').select('table').remove();
     }
 
     initialize(params) {
@@ -47,8 +46,6 @@ class Sim5 extends BasicSim {
 
     go() {
         super.go();
-
-        //console.log(this.agents);
 
         const n_hidden = this.agents.reduce((acc, a) => acc + a.ishidden, 0);
         const frac_hidden = n_hidden / this.params.N
