@@ -9,16 +9,19 @@ class Sim2 extends BasicSim {
         params.N = params.N_def;
         params.attraction_radius = params.ar_def;
         super(params);
+
         this.params = params;
+
+        this.sliders = setup_sliders(params);
 
         this.N = params.N;
 
         d3.select('#controls')
             .style('height', '600px')
             .select('svg')
-            .style("height", "270px")
-            .style("width", "500px")
-            .attr('viewBox', '0 0 500 270');
+            .style("height", "230px")
+            .style("width", "430px")
+            .attr('viewBox', '0 0 430 230');
 
         d3.select('#control-text')
             .html('So far, the fish have all been moving randomly on their own. We<br/>\
@@ -36,7 +39,7 @@ class Sim2 extends BasicSim {
                 for which schooling behavior emerges? <p/>\
                 2. How does Attraction Radius affect schooling behavior?');
 
-        setup_sliders(params);
+        
         //document.getElementById('#controls').select('table').remove();
     }
 
@@ -48,6 +51,16 @@ class Sim2 extends BasicSim {
         }
 
         super.go()
+    }
+
+    reset() {
+        this.sliders.n_slider.value(1)
+        this.sliders.ar_slider.value(5)
+        this.params.N = this.params.N_def;
+        this.params.attraction_radius = this.params.ar_def;
+
+        this.N = this.params.N;
+        this.initialize(this.params);
     }
 }
 

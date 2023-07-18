@@ -24,7 +24,7 @@ export function setup_chart(data) {
     //d3.select('control-text').select('svg').remove('#chart');
 
     const svg = d3.select('#control-text').append('svg').attr('id', '#chart')
-        .attr('viewBox', '0 0 500 160');
+        .attr('viewBox', '0 0 415 165');
 
     const g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -64,37 +64,58 @@ export function setup_chart(data) {
     g.append('line')
         .attr('id', 'best-line')
         .style('stroke-width', 1)
-        .style('stroke', 'crimson')
+        .style('stroke', '#cb1f83')
         .attr('x1', 1)
         .attr('y1', y(0))
         .attr('x2', width)
         .attr('y2', y(0))
 
     // High score text
+    svg.append('line')
+        .style('stroke-width', 1)
+        .style('stroke', '#cb1f83')
+        .attr('x1', 283)
+        .attr('y1', 145)
+        .attr('x2', 293)
+        .attr('y2', 145)
     svg.append('text')
         .attr('id', 'high-label')
-        .attr('x', 275)
+        .attr('x', 295)
         .attr('y', 150)
         .text('High: ')
     svg.append('text')
         .attr('id', 'high')
-        .attr('x', 320)
+        .attr('x', 340)
         .attr('y', 150)
         .text('0%')
 
     // Running average text
+    svg.append('line')
+        .style('stroke-width', 1)
+        .style('stroke', 'darkgray')
+        .attr('x1', 158)
+        .attr('y1', 145)
+        .attr('x2', 168)
+        .attr('y2', 145)
     svg.append('text')
         .attr('id', 'running-avg-label')
-        .attr('x', 160)
+        .attr('x', 170)
         .attr('y', 150)
         .text('Average:')
     svg.append('text')
         .attr('id', 'running-avg')
-        .attr('x', 225)
+        .attr('x', 235)
         .attr('y', 150)
         .text('0%')
 
-    // Running average text
+    // Current average text
+    svg.append('line')
+        .style('stroke-width', 1)
+        .style('stroke', 'blue')
+        .attr('x1', 38)
+        .attr('y1', 145)
+        .attr('x2', 48)
+        .attr('y2', 145)
     svg.append('text')
         .attr('id', 'current-label')
         .attr('x', 50)
@@ -107,28 +128,10 @@ export function setup_chart(data) {
         .text('0%')
 }
 
-
-const new_avg = (old_avg, new_val, ticks) => {
-    const avg = (old_avg * (ticks - 1) + new_val) / ticks;
-    return avg;
-}
-
-const slider_setting = d3.scaleLinear()
-    .domain([0, 4])
-    .range([-1, 1]);
-
 export function chart_tick(sim, val) {
-    const avg = sim.mean_hidden;
-    const best = sim.best_score;
+    const avg = Math.min(.99, sim.mean_hidden);
+    const best = Math.min(.99, sim.best_score);
     const data = sim.data;    
-
-    sim.ticks += 1;
-    sim.avg_s = new_avg(sim.avg_s, sim.sliders.speed_slider.value(), sim.ticks);
-    sim.avg_ar = new_avg(sim.avg_ar, sim.sliders.ar_slider.value(), sim.ticks);
-    sim.avg_al = new_avg(sim.avg_al, sim.sliders.al_slider.value(), sim.ticks);
-    sim.avg_ar_slider = slider_setting(sim.avg_ar);
-    sim.avg_al_slider = slider_setting(sim.avg_al * 2);
-    sim.avg_s_slider = slider_setting(sim.avg_s);
 
     // Push a new data point onto the back.
     data.push(val);

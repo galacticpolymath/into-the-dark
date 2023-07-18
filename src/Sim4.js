@@ -25,14 +25,14 @@ class Sim4 extends BasicSim {
         d3.select('#control-text')
             .html('Hiding in the dark is a common strategy for prey to avoid being <br/>\
             eaten. But <i>how does a school of fish find its way into the dark?</i> <br/>\
-            Each fish only has a small, partial field of view and a little control <br/>\
-            over where the school is going. (it is effectively leaderless). <p/>\
+            Each fish only has a small, partial field of view and a little <br/>\
+            control over where the school is going. (it is effectively leaderless). <p/>\
             <b>Hypothesis</b>: Scientists have proposed that fish schools might be <br/>\
             found more in the dark than the light if the behavioral rules <br/>\
             controlling their movement are consistently different in the light <br/>\
             versus the dark. <p/>\
-            <b>Question</b>: How can you configure the sliders below to maximize <br/>\
-            the time in the dark for an average fish?');
+            <b>Question</b>: How can you configure the sliders below to  <br/>\
+            maximize the time in the dark for an average fish?');
 
         setup_sliders(params);
     }

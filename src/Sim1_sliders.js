@@ -4,14 +4,12 @@ import {sliderHorizontal} from 'd3-simple-slider';
 
 export default (params) => {
     const svg = d3.select("#controls").select('svg')
-    const sliders_y = 150;
-    const slider_width = 450;
-
-    const go_button = d3.select('#controls').select('.button')
-        .attr('transform', `translate(${slider_width / 2 + 15}, ${params.widgets.playbutton_size/2 + sliders_y - 130})`)
+    const sliders_y = 50;
+    const slider_width = 410;
 
     const g = d3.select("#controls").select('svg').append('g')
         .attr('id', 'sliders')
+        .attr('transform', 'translate(10,0)')
 
     for (let j = 0; j < 10; j++) {
         g.append('line')
@@ -29,20 +27,20 @@ export default (params) => {
         .displayValue(false)
         .on('onchange', (val) => {
             params.speed_in_the_light = val / 3 - .2;
-    });
+        });
 
     const s = g.append('g')
         .call(s_slider)
         .attr('transform', `translate(15, ${sliders_y})`)
 
     g.append('text').text('Slow').attr('x', 10).attr('y', sliders_y + 25).style("font-size", "16px")
-    g.append('text').text('Fast').attr('x', slider_width - 20).attr('y', sliders_y + 25).style("font-size", "14px").attr('text-anchor', 'end')
+    g.append('text').text('Fast').attr('x', slider_width + 15).attr('y', sliders_y + 25).style("font-size", "16px").attr('text-anchor', 'end')
 
     g.append("text")
         .text("Speed")
         .attr("x", slider_width/2 + 12)
         .attr("y", sliders_y - 20)
         //.style("font-weight", 600)
-        .style('font-size', '24px')
+        .style('font-size', '20px')
         .attr('text-anchor', 'middle');
 }

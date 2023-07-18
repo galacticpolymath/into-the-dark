@@ -14,7 +14,7 @@ class Sim1 extends BasicSim {
         d3.select("#controls")
             .style("height", "450px")
             .select("svg")
-            .attr("viewBox", `0 0 480 200`);
+            .attr("viewBox", `0 0 480 100`);
 
         d3.select('#control-text')
             .style("position", "relative")
@@ -25,7 +25,6 @@ class Sim1 extends BasicSim {
 
         setup_sliders(this.params);
 
-        
 
         setup_table(this.agents);
             

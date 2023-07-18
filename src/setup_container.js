@@ -20,9 +20,11 @@ export default (config)=>{
 		.attr("class","control-panel")
 		.classed(config.controls_class,true)
 	
-	controls.append('div').attr('id', 'control-text').style("width", '500px');	
+	controls.append('div').attr('id', 'control-text').attr('class', 'w-100');	
+	controls.append('div').attr('id', 'button-container').style('height', '50px')
+		.attr('class', 'flex w-95 items-center justify-center');
 	const c_svg = controls.append("svg")
-		.attr("viewBox", `0 0 ${config.controls_size.width} ${config.controls_size.height}`)
+		.attr("viewBox", `0 0 ${config.controls_size.width} ${config.controls_size.height}`);
 
 	if (config.controls_border){
 		c_svg.append("rect").attr("class","border")

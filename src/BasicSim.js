@@ -14,7 +14,8 @@ import Agent from "./Agent.js"
 import Hideout from "./Hideout.js"
 import {each,range,map} from "lodash-es"
 import setup_container from "./setup_container.js"
-import setup_go from './Basic_sliders.js'
+import setup_go from './Basic_sliders'
+//import setup_go from './Basic_sliders2.js'
 import * as d3 from "d3"
 import {tadpole} from "./utils.js"
 import parameters from './parameters'
@@ -22,6 +23,7 @@ import parameters from './parameters'
 
 const X = d3.scaleLinear().domain([0, 128]);
 const Y = d3.scaleLinear().domain([0, 128]);
+
 
 export default class BasicSim {
     constructor(params) {
@@ -33,11 +35,13 @@ export default class BasicSim {
 			
 		this.agents = [];
 		this.hideouts = [];
+		
 		this.initialize(this.params);
 
 		this.timer = {}
+		this.playing = false;
 
-		setup_go(this);
+		setup_go(this)
     }
 
 	initialize(params) {

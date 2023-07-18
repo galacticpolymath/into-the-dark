@@ -178,7 +178,7 @@ export default {
         display_class:"fl w-100 w-50-ns pa2 ph3-ns",
         controls_class:"fl w-100 w-50-ns pa2 ph3-ns",
         container_class:"mw8 center cf",
-        reset_enabled: true
+        reset_enabled: false
     },
     mode4: {
         N: 30,
@@ -225,7 +225,7 @@ export default {
         display_class:"fl w-100 w-50-ns pa2 ph3-ns",
         controls_class:"fl w-100 w-50-ns pa2 ph3-ns",
         container_class:"mw8 center cf",
-        reset_enabled: true
+        reset_enabled: false
     },
     mode5: {
         N: 30,

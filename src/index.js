@@ -1,5 +1,8 @@
 import fishPng from './circle fish school.png'
 import horizLogo from './gp_horiz_logo.png'
+import pause from './pause.svg'
+import play from './play.svg'
+import reset from './reset.svg'
 import './onload.js'
 import css from "./styles.css";
 
