@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 const n = 1000
 const perc = d3.format(".0%");
 
-const margin = {top: 10, right: 20, bottom: 20, left: 40},
+const margin = {top: 10, right: 30, bottom: 20, left: 50},
     width = 420 - margin.left - margin.right,
     height = 150 - margin.top - margin.bottom
 
@@ -24,9 +24,9 @@ export function setup_chart(data) {
     //d3.select('control-text').select('svg').remove('#chart');
 
     const svg = d3.select('#control-text').append('svg').attr('id', '#chart')
-        .attr('viewBox', '0 0 415 165');
+        .attr('viewBox', '0 0 415 180');
 
-    const g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    const g = svg.append("g").attr("transform", `translate(${margin.left}, ${margin.top + 15})`);
 
     g.append("defs").append("clipPath")
         .attr("id", "clip")
@@ -70,62 +70,57 @@ export function setup_chart(data) {
         .attr('x2', width)
         .attr('y2', y(0))
 
+    svg.append('text')
+        .attr('id', 'y-label')
+        .attr('x', 0)
+        .attr('y', 10)
+        .text('% fish in the dark')
+        .style('font-size', '12px')
+        .attr('transform', 'translate(2,130)rotate(270)')
+
+    const legend_y = 170
+    const legend_x = 45
     // High score text
     svg.append('line')
         .style('stroke-width', 1)
         .style('stroke', '#cb1f83')
-        .attr('x1', 283)
-        .attr('y1', 145)
-        .attr('x2', 293)
-        .attr('y2', 145)
-    svg.append('text')
-        .attr('id', 'high-label')
-        .attr('x', 295)
-        .attr('y', 150)
-        .text('High: ')
+        .attr('x1', legend_x + 250)
+        .attr('y1', legend_y-5)
+        .attr('x2', legend_x + 260)
+        .attr('y2', legend_y-5)
     svg.append('text')
         .attr('id', 'high')
-        .attr('x', 340)
-        .attr('y', 150)
-        .text('0%')
+        .attr('x', legend_x + 262)
+        .attr('y', legend_y)
+        .text('High: 0%')
 
     // Running average text
     svg.append('line')
         .style('stroke-width', 1)
         .style('stroke', 'darkgray')
-        .attr('x1', 158)
-        .attr('y1', 145)
-        .attr('x2', 168)
-        .attr('y2', 145)
-    svg.append('text')
-        .attr('id', 'running-avg-label')
-        .attr('x', 170)
-        .attr('y', 150)
-        .text('Average:')
+        .attr('x1', legend_x + 125)
+        .attr('y1', legend_y-5)
+        .attr('x2', legend_x + 135)
+        .attr('y2', legend_y-5)
     svg.append('text')
         .attr('id', 'running-avg')
-        .attr('x', 235)
-        .attr('y', 150)
-        .text('0%')
+        .attr('x', legend_x + 137)
+        .attr('y', legend_y)
+        .text('Average: 0%')
 
     // Current average text
     svg.append('line')
         .style('stroke-width', 1)
         .style('stroke', 'blue')
-        .attr('x1', 38)
-        .attr('y1', 145)
-        .attr('x2', 48)
-        .attr('y2', 145)
-    svg.append('text')
-        .attr('id', 'current-label')
-        .attr('x', 50)
-        .attr('y', 150)
-        .text('Current:')
+        .attr('x1', legend_x)
+        .attr('y1', legend_y - 5)
+        .attr('x2', legend_x + 10)
+        .attr('y2', legend_y - 5)
     svg.append('text')
         .attr('id', 'current')
-        .attr('x', 110)
-        .attr('y', 150)
-        .text('0%')
+        .attr('x', legend_x + 12)
+        .attr('y', legend_y)
+        .text('Current: 0%')
 }
 
 export function chart_tick(sim, val) {
@@ -148,17 +143,17 @@ export function chart_tick(sim, val) {
             .attr('y1', y(avg))
             .attr('y2', y(avg));
         d3.select('#high')
-            .text(perc(avg.toFixed(2)))
+            .text(`High: ${perc(avg.toFixed(2))}`)
     }
 
     d3.select('#avg-line')
         .attr('y1', y(avg))
         .attr('y2', y(avg));
     d3.select('#running-avg')
-        .text(perc(avg.toFixed(2)))
+        .text(`Average: ${perc(avg.toFixed(2))}`)
 
     d3.select('#current')
-        .text(perc(val.toFixed(2)))
+        .text(`Current: ${perc(val.toFixed(2))}`)
         
     // Pop the old data point off the front.
     data.shift();

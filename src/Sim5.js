@@ -1,6 +1,5 @@
 import BasicSim from './BasicSim'
 import setup_sliders from './Sim5_sliders.js'
-import setup_go_reset from './Basic_sliders2.js'
 import {setup_chart, chart_tick} from './Sim5_chart.js'
 import * as d3 from "d3";
 import parameters from './parameters'
@@ -116,8 +115,6 @@ class Sim5 extends BasicSim {
 
         chart_tick(this, frac_hidden);
         this.best_score = Math.max(this.best_score, this.mean_hidden);
-
-        
     }
 }
 
