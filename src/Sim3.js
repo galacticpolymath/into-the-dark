@@ -18,6 +18,20 @@ class Sim3 extends BasicSim {
             .style("width", "500px")
             .attr('viewBox', '0 0 500 270');
 
+        d3.select('#overhead-text')
+            .html('Imagine these fish are swimming in open water on a sunny day. <br/>\
+                Any single fish could become easy prey for a larger predator. <p/>\
+                Swimming in a larger group can make it more difficult for <br/>\
+                predators to lock onto a single target. But schooling is not just <br/>\
+                about following, but how well you align with other fish in your <br/>\
+                group.<p/>\
+                Explore how <i>Alignment</i> affects schooling behavior. <i>It may <br/>\
+                take a few seconds for group behavior to coalesce!</i><p/>\
+                <b>Questions</b>:<p/>\
+                Does one of these variables alone seem to cause schooling, <br/>\
+                or is there a combination that works best to cause the fish <br/>\
+                to group together?');
+
         d3.select('#control-text')
             .html('Imagine these fish are swimming in open water on a sunny day. <br/>\
                 Any single fish could become easy prey for a larger predator. <p/>\

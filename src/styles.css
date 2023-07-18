@@ -1,5 +1,6 @@
 @import '~tachyons/css/tachyons.min.css';
 
+
 .control-panel .border {
 	fill: none;
 	stroke: black;
@@ -83,18 +84,214 @@ body {
 
 #title {
 	display: flex;
-	flex-direction: row;
-	padding: 10px;
+	align-items: center;
+	justify-content: space-between;
+	width: 800px;
 }
 
-#title-text {
+#fishdiv {
+	display: flex;
+	align-items: center;
 	justify-content: center;
+}
+
+.fish {
+	position: relative;
+	top: 0px;
+	right: 20px;
+}
+
+#modal {
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 200px;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: 'white'; /* Fallback color */
+  }
+  
+/* Modal Content */
+.modal-content {
+	position: relative;
+	background-color: #fefefe;
+	margin: auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 600px;
+	height: 350px;
+	box-sizing: border-box; /* So that padding does not add to the size */
+}
+  
+/* The Close Button */
+.close {
+	color: #aaaaaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+  }
+
+  #title-text {
+	height: 400px;  /* Set a specific height */
+	display: flex;  /* Use flexbox to align items */
+	flex-direction: column;  /* Align items vertically */
+	justify-content: center;  /* Center items vertically */
+  }
+  
+  #title-text .top {
+	position: relative;  /* Remove from normal document flow */
+	top: 0px;
+	height: 50px;
+	width: 250px;
+	left: 50px;
+  }
+  
+  #title-text .above-center {
+	position: relative;  /* Remove from normal document flow */
+	top: 30px;  /* Position above center */
+	left: 50px;
+  }
+  
+  #title-text .below-center {
+	position: relative;  /* Remove from normal document flow */
+	top: 15px;  /* Position below center */
+	left: 50px;
+	color: gray;
+  }
+  
+  #title-text .bottom {
+	position: relative;  /* Remove from normal document flow */
+	top: 50px;  /* Position at bottom of .container */
+	left: 50px;
+  }
+
+#nav {
+	font-family: Arial;
+	border-style: solid;
+	border-width: 1px;
+	background-color: AliceBlue;
+	text-align: center;
+	width: 100%;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* padding-left: 50px; */
+	margin-top: 40px;
 }
 
 #display {
 	padding-left: 0px;
+	width: 100%;
 }
 
 #controls {
 	padding-left: 0px;
+	width: 100%;
+}
+
+#control-text {
+	width: 500px;
+	display: none;
+}
+
+#overhead-text {
+	padding-left: 5px;
+	padding-right: 20px;
+	width: 100%;
+	word-wrap: break-word;
+	display: block;
+}
+
+@media screen and (min-width: 481px) {
+
+	#control-text {
+		width: 500px;
+		display: block;
+	}
+
+	#overhead-text {
+		padding-left: 5px;
+		padding-right: 20px;
+		width: 100%;
+		word-wrap: break-word;
+		display: none;
+	}
+
+	#nav {
+		font-family: Arial;
+		border-style: solid;
+		border-width: 1px;
+		background-color: AliceBlue;
+		text-align: center;
+		width: 100%;
+		max-width: 830px;
+		height: 50px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		/* padding-left: 50px; */
+		margin-top: 40px;
+	}
+
+	#display {
+		padding-left: 0px;
+		width: 100%;
+		max-width: 500px;
+	}
+	
+	#controls {
+		padding-left: 0px;
+		width: 100%;
+		max-width: 500px;
+	}
+}
+
+@media screen and (min-width: 961px) {
+
+	#control-text {
+		width: 500px;
+		display: block;
+	}
+
+	#overhead-text {
+		padding-left: 5px;
+		padding-right: 20px;
+		width: 100%;
+		word-wrap: break-word;
+		display: none;
+	}
+
+	#nav {
+		font-family: Arial;
+		border-style: solid;
+		border-width: 1px;
+		background-color: AliceBlue;
+		text-align: center;
+		width: 830px;
+		height: 50px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		/* padding-left: 50px; */
+		margin-top: 40px;
+	}
+
+	#display {
+		padding-left: 0px;
+		width: 500px;
+	}
+	
+	#controls {
+		padding-left: 0px;
+		width: 500px;
+	}
 }

@@ -6,6 +6,10 @@ import * as d3 from "d3"
 
 export default (config)=>{
 	const container = d3.select('#sim').classed(config.container_class,true);
+	
+	container.append('div').attr('id', 'overhead-text')
+		.style("width", "100%")
+		.style("word-wrap", "break-word");	
 
 	const display = container.append("div")
 		.attr("id","display")
@@ -13,7 +17,7 @@ export default (config)=>{
 		.classed(config.display_class,true)
 		.append('svg')
 		.attr("viewBox", `0 0 ${config.display_size.width} ${config.display_size.height}`)		
-		.style('width', '100%')
+		// .style('width', `${config.display_size.width}px`)
 
 	const controls = container.append("div")
 		.attr("id","controls")
@@ -36,7 +40,7 @@ export default (config)=>{
 		.attr("height", config.display_size.height)
 	}
 	
-return { display: display, controls: c_svg}
+	return { display: display, controls: c_svg}
 }
 
 

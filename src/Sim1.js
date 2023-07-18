@@ -16,6 +16,13 @@ class Sim1 extends BasicSim {
             .select("svg")
             .attr("viewBox", `0 0 480 200`);
 
+        d3.select('#overhead-text')
+            .style("position", "relative")
+            .html('This is a simulation that models fish behavior. Each\
+            virtual fish is a point in a data grid.\
+            It has an X and a Y coordinate, a speed, and a direction.\
+            Try changing the speed with the slider below.');
+
         d3.select('#control-text')
             .style("position", "relative")
             .html('This is a simulation that models fish behavior. Each<br/>\
