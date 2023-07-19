@@ -36,7 +36,7 @@ function init () {
         
     
     document.body.innerHTML = 
-    `<div id="container" class="mw8 center">    
+    `<div id="container" class="mw8 center fw w-100">    
         <div id="nav" class="mw8 center">
             <img src="./gp_logo_gradient_transBG.png" alt="Galactic Polymath" width="30" height="30">
             <a href="#" class="nav-link active-link" data-mode="0">0. Start</a>
