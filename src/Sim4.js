@@ -16,10 +16,8 @@ class Sim4 extends BasicSim {
         this.params = params;
 
         d3.select("#controls")
-            .style("height", "650px")
             .select("svg")
-            .style("height", "420")
-            .style("width", "450px")
+            .style("width", "100%")
             .attr("viewBox", `0 0 450 420`);
 
         d3.select('#overhead-text')

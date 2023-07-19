@@ -12,9 +12,7 @@ class Sim3 extends BasicSim {
         this.params = params;
 
         d3.select('#controls')
-            .style('height', '550px')
             .select('svg')
-            .style("height", "270px")
             .style("width", "100%")
             .attr('viewBox', '0 0 500 270');
 

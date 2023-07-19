@@ -14,9 +14,7 @@ class Sim2 extends BasicSim {
         this.N = params.N;
 
         d3.select('#controls')
-            .style('height', '600px')
             .select('svg')
-            .style("height", "270px")
             .style("width", "100%")
             .attr('viewBox', '0 0 500 270');
 

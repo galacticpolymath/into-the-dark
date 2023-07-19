@@ -57,7 +57,7 @@ a.active-link {
 
 #sim {
 	text-align: left;
-	margin-top: 50px;
+	margin-top: 20px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -114,8 +114,7 @@ body {
 	margin: auto;
 	padding: 20px;
 	border: 1px solid #888;
-	width: 600px;
-	height: 350px;
+	max-width: 600px;
 	box-sizing: border-box; /* So that padding does not add to the size */
 }
   
@@ -199,9 +198,8 @@ body {
 }
 
 #overhead-text {
-	padding-left: 5px;
-	padding-right: 20px;
 	width: 100%;
+	margin-bottom: 10px;
 	word-wrap: break-word;
 	display: block;
 }
@@ -225,6 +223,16 @@ body {
 	display: none;
 }
 
+#container {
+	padding: 0 10px;
+}
+
+#backnext {
+	display: flex;
+	justify-content: space-evenly;
+	margin: 15px;
+}
+
 @media screen and (min-width: 481px) {
 
 	#control-text {
@@ -233,10 +241,6 @@ body {
 	}
 
 	#overhead-text {
-		padding-left: 5px;
-		padding-right: 20px;
-		width: 100%;
-		word-wrap: break-word;
 		display: none;
 	}
 
@@ -288,6 +292,13 @@ body {
 		margin-left: 30px;
 		font-size: 18px;
 	}
+
+	#backnext {
+		display: flex;
+		justify-content: space-evenly;
+		margin: 15px;
+		width: 100%;
+	}
 }
 
 @media screen and (min-width: 1000px) {
@@ -298,10 +309,6 @@ body {
 	}
 
 	#overhead-text {
-		padding-left: 5px;
-		padding-right: 20px;
-		width: 100%;
-		word-wrap: break-word;
 		display: none;
 	}
 
@@ -355,5 +362,14 @@ body {
 	.nav-link {
 		margin-left: 30px;
 		font-size: 18px;
+	}
+
+	#backnext {
+		display: flex;
+		justify-content: space-evenly;
+		margin: 15px;
+		float: right;
+		width: 50%;
+		margin-right: 5%;
 	}
 }

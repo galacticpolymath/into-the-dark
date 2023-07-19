@@ -49,26 +49,11 @@ function backNextLinks(mode, navLinks) {
     if (next) {next.remove()}
     const backnext = document.getElementById('backnext');
 
-    // Add Next link first (because of float right)
-    if (mode < 5) {
-        let newDiv = document.createElement("div");
-        let newLink = document.createElement("a");
-        newDiv.className = "fr ph3 pv1 ba mr5";
-        newDiv.id = 'next';
-        newLink.href = "#";
-        newLink.dataset.mode = `${mode+1}`;
-        newLink.textContent = "Next";
-
-        newDiv.appendChild(newLink);
-        backnext.appendChild(newDiv);
-        addBFListener(document.getElementById('next').firstChild, navLinks);   
-    }
-
     // Add Back link
     if (mode > 0) {
         let newDiv = document.createElement("div");
         let newLink = document.createElement("a");
-        newDiv.className = "fr ph3 pv1 ba mr4 bg-dark-gray";
+        newDiv.className = "ph3 pv1 ba bg-dark-gray";
         newDiv.id = 'back';
         newLink.href = "#";
         newLink.className = 'white';
@@ -78,6 +63,21 @@ function backNextLinks(mode, navLinks) {
         newDiv.appendChild(newLink);
         backnext.appendChild(newDiv);
         addBFListener(document.getElementById('back').firstChild, navLinks);
+    }
+
+    // Add Next link first (because of float right)
+    if (mode < 5) {
+        let newDiv = document.createElement("div");
+        let newLink = document.createElement("a");
+        newDiv.className = "ph3 pv1 ba";
+        newDiv.id = 'next';
+        newLink.href = "#";
+        newLink.dataset.mode = `${mode+1}`;
+        newLink.textContent = "Next";
+
+        newDiv.appendChild(newLink);
+        backnext.appendChild(newDiv);
+        addBFListener(document.getElementById('next').firstChild, navLinks);   
     }
 }
 
