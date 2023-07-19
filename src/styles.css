@@ -83,8 +83,51 @@ body {
 
 #title {
 	display: flex;
-	flex-direction: row;
-	padding: 10px;
+	align-items: center;
+	justify-content: space-between;
+	width: 800px;
+}
+
+#fishdiv {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.fish {
+	position: relative;
+	top: 0px;
+	right: 20px;
+}
+
+#display {
+	padding-left: 0px;
+}
+
+#controls {
+	padding: 0px;
+}
+
+#modal {
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 200px;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: 'white'; /* Fallback color */
+  }
+  
+/* Modal Content */
+.modal-content {
+	position: relative;
+	background-color: #fefefe;
+	margin: auto;
+	padding: 20px;
+	border: 1px solid #888;
+	max-width: 600px;
+	box-sizing: border-box; /* So that padding does not add to the size */
 }
 
 #title-text {
@@ -97,4 +140,170 @@ body {
 
 #controls {
 	padding-left: 0px;
+	width: 100%;
+}
+
+#control-text {
+	width: 500px;
+	display: none;
+}
+
+#overhead-text {
+	padding-left: 5px;
+	padding-right: 20px;
+	width: 100%;
+	word-wrap: break-word;
+	display: block;
+}
+
+#overhead-logo {
+	display: block;
+	height: 50px;
+	width: 50px;
+	margin-top: 15px;
+}
+
+.wide-nav {
+	display: none;
+}
+
+.mobile-nav {
+	display: block;
+}
+
+#navigation-logo {
+	display: none;
+}
+
+@media screen and (min-width: 481px) {
+
+	#control-text {
+		width: 500px;
+		display: block;
+	}
+
+	#overhead-text {
+		padding-left: 5px;
+		padding-right: 20px;
+		width: 100%;
+		word-wrap: break-word;
+		display: none;
+	}
+
+	#nav {
+		font-family: Arial;
+		border-style: solid;
+		border-width: 1px;
+		background-color: AliceBlue;
+		text-align: center;
+		width: 100%;
+		max-width: 830px;
+		height: 50px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		/* padding-left: 50px; */
+		margin-top: 40px;
+	}
+
+	#display {
+		padding-left: 0px;
+		width: 100%;
+		max-width: 500px;
+	}
+	
+	#controls {
+		padding-left: 0px;
+		width: 100%;
+		max-width: 500px;
+	}
+
+	#overhead-logo {
+		display: none;
+	}
+
+	.wide-nav {
+		display: block;
+	}
+
+	.mobile-nav {
+		display: none;
+	}
+
+	#navigation-logo {
+		display: block;
+	}
+
+	.nav-link {
+		margin-left: 30px;
+		font-size: 18px;
+	}
+}
+
+@media screen and (min-width: 1000px) {
+
+	#control-text {
+		width: 500px;
+		display: block;
+	}
+
+	#overhead-text {
+		padding-left: 5px;
+		padding-right: 20px;
+		width: 100%;
+		word-wrap: break-word;
+		display: none;
+	}
+
+	#nav {
+		font-family: Arial;
+		border-style: solid;
+		border-width: 1px;
+		background-color: AliceBlue;
+		text-align: center;
+		width: 830px;
+		height: 50px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		/* padding-left: 50px; */
+		margin-top: 40px;
+	}
+
+	#display {
+		padding-left: 0px;
+		width: 500px;
+	}
+	
+	#controls {
+		padding-left: 0px;
+		width: 500px;
+	}
+
+	#sim {
+		text-align: left;
+		margin-top: 50px;
+		display: block;
+	}
+
+	#overhead-logo {
+		display: none;
+	}
+
+	.wide-nav {
+		display: block;
+	}
+
+	.mobile-nav {
+		display: none;
+	}
+
+	#navigation-logo {
+		display: block;
+	}
+
+	.nav-link {
+		margin-left: 30px;
+		font-size: 18px;
+	}
 }

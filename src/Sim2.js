@@ -19,23 +19,39 @@ class Sim2 extends BasicSim {
         d3.select('#controls')
             .style('height', '600px')
             .select('svg')
-            .style("height", "230px")
-            .style("width", "430px")
-            .attr('viewBox', '0 0 430 230');
+            .style("height", "270px")
+            .style("width", "100%")
+            .attr('viewBox', '0 0 500 270');
 
-        d3.select('#control-text')
-            .html('So far, the fish have all been moving randomly on their own. We<br/>\
-                can simulate group behavior by introducing 2 new variables and<br/>\
-                changing the algorithm (simulation rules). On this page, each<br/>\
-                fish <i>(i)</i> will follow its nearest neighbor if it falls within the<br/>\
+        d3.select('#overhead-text')
+            .html('So far, the fish have all been moving randomly on their own. We\
+                can simulate group behavior by introducing 2 new variables and\
+                changing the algorithm (simulation rules). On this page, each\
+                fish <i>(i)</i> will follow its nearest neighbor if it falls within the\
                 defined attraction radius.<p/>\
                 <b>Play with the sliders, explore, and observe! </b><p/>\
-                New Variables:<br/>\
-                • <b>N</b>: Number of fish <br/>\
-                • <b>Attraction Radius</b>: the maximum distance a <br/>\
+                New Variables:\
+                • <b>N</b>: Number of fish \
+                • <b>Attraction Radius</b>: the maximum distance a \
                 nearest neighbor" can be for a fish to follow it. <p/>\
                 <b>Questions for your exploration</b>: <p/>\
-                1. How many fish are in a school? Is there a "magic number" N <br/>\
+                1. How many fish are in a school? Is there a "magic number" N \
+                for which schooling behavior emerges? <p/>\
+                2. How does Attraction Radius affect schooling behavior?');
+
+        d3.select('#control-text')
+            .html('So far, the fish have all been moving randomly on their own. We\
+                can simulate group behavior by introducing 2 new variables and\
+                changing the algorithm (simulation rules). On this page, each\
+                fish <i>(i)</i> will follow its nearest neighbor if it falls within the\
+                defined attraction radius.<p/>\
+                <b>Play with the sliders, explore, and observe! </b><p/>\
+                New Variables:\
+                • <b>N</b>: Number of fish \
+                • <b>Attraction Radius</b>: the maximum distance a \
+                nearest neighbor" can be for a fish to follow it. <p/>\
+                <b>Questions for your exploration</b>: <p/>\
+                1. How many fish are in a school? Is there a "magic number" N \
                 for which schooling behavior emerges? <p/>\
                 2. How does Attraction Radius affect schooling behavior?');
 
