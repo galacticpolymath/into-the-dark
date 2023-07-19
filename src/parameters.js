@@ -45,7 +45,7 @@ export default {
         controls_size: {width:480,height:480},
         display_class:"fl w-100 w-50-ns ph3-ns",
         controls_class:"fl w-100 w-50-ns ph3-ns",
-        container_class:"mw8 center cf"
+        container_class:"mw7 center cf"
     }, 
     mode1: {
         N: 3,
@@ -86,7 +86,7 @@ export default {
         controls_size: {width:600,height:480},
         display_class:"fl w-100 w-50-ns ph3-ns",
         controls_class:"fl w-100 w-50-ns ph3-ns",
-        container_class:"mw8 center cf"
+        container_class:"mw7 center cf"
     }, 
     mode2: {
         N: 1,
@@ -132,7 +132,7 @@ export default {
         controls_size: {width:600,height:650},
         display_class:"fl w-100 w-50-ns ph3-ns",
         controls_class:"fl w-100 w-50-ns ph3-ns",
-        container_class:"mw8 center cf",
+        container_class:"mw7 center cf",
         reset_enabled: true
     },
     mode3: {

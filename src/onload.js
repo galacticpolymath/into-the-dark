@@ -57,7 +57,7 @@ function backNextLinks(mode, navLinks) {
         newDiv.id = 'back';
         newLink.href = "#";
         newLink.className = 'white';
-        newLink.dataset.mode = `${mode-1}`; // This sets a data attribute
+        newLink.dataset.mode = `${mode-1}`; 
         newLink.textContent = "Back";
 
         newDiv.appendChild(newLink);

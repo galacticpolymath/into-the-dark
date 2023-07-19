@@ -21,27 +21,27 @@ class Sim4 extends BasicSim {
             .attr("viewBox", `0 0 450 420`);
 
         d3.select('#overhead-text')
-            .html('Hiding in the dark is a common strategy for prey to avoid being <br/>\
-            eaten. But <i>how does a school of fish find its way into the dark?</i> <br/>\
-            Each fish only has a small, partial field of view and a little control <br/>\
+            .html('Hiding in the dark is a common strategy for prey to avoid being \
+            eaten. But <i>how does a school of fish find its way into the dark?</i> \
+            Each fish only has a small, partial field of view and a little control \
             over where the school is going. (it is effectively leaderless). <p/>\
-            <b>Hypothesis</b>: Scientists have proposed that fish schools might be <br/>\
-            found more in the dark than the light if the behavioral rules <br/>\
-            controlling their movement are consistently different in the light <br/>\
+            <b>Hypothesis</b>: Scientists have proposed that fish schools might be \
+            found more in the dark than the light if the behavioral rules \
+            controlling their movement are consistently different in the light \
             versus the dark. <p/>\
-            <b>Question</b>: How can you configure the sliders below to maximize <br/>\
+            <b>Question</b>: How can you configure the sliders below to maximize \
             the time in the dark for an average fish?');
 
         d3.select('#control-text')
-            .html('Hiding in the dark is a common strategy for prey to avoid being <br/>\
-            eaten. But <i>how does a school of fish find its way into the dark?</i> <br/>\
-            Each fish only has a small, partial field of view and a little control <br/>\
+            .html('Hiding in the dark is a common strategy for prey to avoid being \
+            eaten. But <i>how does a school of fish find its way into the dark?</i> \
+            Each fish only has a small, partial field of view and a little control \
             over where the school is going. (it is effectively leaderless). <p/>\
-            <b>Hypothesis</b>: Scientists have proposed that fish schools might be <br/>\
-            found more in the dark than the light if the behavioral rules <br/>\
-            controlling their movement are consistently different in the light <br/>\
+            <b>Hypothesis</b>: Scientists have proposed that fish schools might be \
+            found more in the dark than the light if the behavioral rules \
+            controlling their movement are consistently different in the light \
             versus the dark. <p/>\
-            <b>Question</b>: How can you configure the sliders below to maximize <br/>\
+            <b>Question</b>: How can you configure the sliders below to maximize \
             the time in the dark for an average fish?');
 
         setup_sliders(params);

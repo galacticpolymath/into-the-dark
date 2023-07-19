@@ -26,8 +26,8 @@ class Sim2 extends BasicSim {
                 defined attraction radius.<p/>\
                 <b>Play with the sliders, explore, and observe! </b><p/>\
                 New Variables:\
-                • <b>N</b>: Number of fish \
-                • <b>Attraction Radius</b>: the maximum distance a \
+                <br>• <b>N</b>: Number of fish \
+                <br>• <b>Attraction Radius</b>: the maximum distance between a \
                 nearest neighbor" can be for a fish to follow it. <p/>\
                 <b>Questions for your exploration</b>: <p/>\
                 1. How many fish are in a school? Is there a "magic number" N \
@@ -42,9 +42,9 @@ class Sim2 extends BasicSim {
                 defined attraction radius.<p/>\
                 <b>Play with the sliders, explore, and observe! </b><p/>\
                 New Variables:\
-                • <b>N</b>: Number of fish \
-                • <b>Attraction Radius</b>: the maximum distance a \
-                nearest neighbor" can be for a fish to follow it. <p/>\
+                <br>• <b>N</b>: Number of fish \
+                <br>• <b>Attraction Radius</b>: maximum distance between a fish and its\
+                "nearest neighbor" for the fish to follow it. <p/>\
                 <b>Questions for your exploration</b>: <p/>\
                 1. How many fish are in a school? Is there a "magic number" N \
                 for which schooling behavior emerges? <p/>\

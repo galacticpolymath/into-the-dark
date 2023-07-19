@@ -9,10 +9,10 @@ export default function title () {
 
     const introHTML = 
         `<div id="title">
-         <img id="home-logo" class='top' src="./gp_horiz_logo.png" alt="GP logo">
         <div id="title-text">
-            <h1 class='above-center' style='font-size:3em'>Swimming in the Dark</h1>
-            <h3 class='below-center' style='font-size:2em'>A simulation of fish schooling behavior</h3>
+            <img id="home-logo" class='top' src="./gp_horiz_logo.png" alt="GP logo">
+            <h1 class='above-center' style='font-size:3em'>Swimming <br>in the Dark</h1>
+            <h3 class='below-center' style='font-size:2em'>A simulation of fish <br>schooling behavior</h3>
             <h6 class='bottom'>This Simulation Connects to Part 4 of GP's "Animal Collective" Lesson</h6>
         </div>
         <div id="fishdiv">
@@ -68,7 +68,7 @@ function init () {
                 </div>
             </div>
         </div>
-        <div id="backnext" class="bf-links">
+        <div id="backnext" class="center ma4">
             <div id="next" class="ph3 pv1 ba">
                 <a href="#" data-mode="1" id='first-next'>Next</a>
             </div>
