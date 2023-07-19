@@ -50,7 +50,7 @@ class Sim2 extends BasicSim {
                 for which schooling behavior emerges? <p/>\
                 2. How does Attraction Radius affect schooling behavior?');
 
-        setup_sliders(params);
+        this.sliders = setup_sliders(params);
         //document.getElementById('#controls').select('table').remove();
     }
 
@@ -62,6 +62,16 @@ class Sim2 extends BasicSim {
         }
 
         super.go()
+    }
+
+    reset() {
+        this.sliders.n_slider.value(1)
+        this.sliders.ar_slider.value(0)
+        this.params.N = this.params.N_def;
+        this.params.attraction_radius = this.params.ar_def;
+
+        this.N = this.params.N;
+        this.initialize(this.params);
     }
 }
 

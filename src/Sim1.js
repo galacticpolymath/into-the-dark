@@ -10,10 +10,9 @@ class Sim1 extends BasicSim {
         super(params);
         this.params = params;
         
-
         d3.select("#controls")
             .select("svg")
-            .attr("viewBox", `0 0 480 200`);
+            .attr("viewBox", `0 0 500 100`);
 
         d3.select('#overhead-text')
             .style("position", "relative")

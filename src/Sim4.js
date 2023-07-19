@@ -18,7 +18,7 @@ class Sim4 extends BasicSim {
         d3.select("#controls")
             .select("svg")
             .style("width", "100%")
-            .attr("viewBox", `0 0 450 420`);
+            .attr("viewBox", `0 0 500 420`);
 
         d3.select('#overhead-text')
             .html('Hiding in the dark is a common strategy for prey to avoid being \

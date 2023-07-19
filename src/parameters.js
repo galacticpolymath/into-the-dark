@@ -104,7 +104,7 @@ export default {
         speed_in_the_dark: 0.1,
         alignment_radius: 0,
         ar_def: 0,
-        attraction_radius: 10,
+        attraction_radius: 0,
         wiggle: 0,
         collective_behavior: true,
         dark_zones: false, 

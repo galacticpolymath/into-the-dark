@@ -2,19 +2,13 @@ import * as d3 from 'd3';
 import {sliderHorizontal} from 'd3-simple-slider';
 
 export default (params) => {
-    const sliders_y = 100;
+    const sliders_y = 35;
     const slider_spacing = 100;
-    const slider_width = 410;
-
-    const go_button = d3.select('#controls').select('svg').select('g:nth-child(1)')
-        .attr('transform', `translate(${slider_width / 2 - 40}, ${params.widgets.playbutton_size/2 + 3})`)
-
-    const reset_button = d3.select('#controls').select('svg').select('g:nth-child(2)')
-        .attr('transform', `translate(${slider_width / 2 + 40}, ${params.widgets.playbutton_size/2 + 3})`)
+    const slider_width = 480;
 
     const g = d3.select("#controls").select('svg').append('g')
         .attr('id', 'sliders')
-        .attr('transform', `translate(10, ${sliders_y})`);
+        .attr('transform', `translate(15, ${sliders_y})`);
 
     const ticks = ['Much Greater', 'Equal', 'Much Greater']
 
@@ -175,7 +169,8 @@ export default (params) => {
     const ar = g.append('g')
         .call(ar_slider)
         .attr('transform', `translate(0, ${slider_spacing * 2 + 40})`)
-        
+    
+    return {speed_slider, al_slider, ar_slider}
 }
 
 

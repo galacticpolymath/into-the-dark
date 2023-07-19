@@ -17,14 +17,15 @@ export default (config)=>{
 		.classed(config.display_class,true)
 		.append('svg')
 		.attr("viewBox", `0 0 ${config.display_size.width} ${config.display_size.height}`)		
-		// .style('width', `${config.display_size.width}px`)
 
 	const controls = container.append("div")
 		.attr("id","controls")
 		.attr("class","control-panel")
 		.classed(config.controls_class,true)
 	
-	controls.append('div').attr('id', 'control-text').style("width", '100%');	
+	controls.append('div').attr('id', 'control-text').style("width", '100%').classed('notsim5', true);
+	controls.append('div').attr('id', 'button-container').style('height', '50px')	
+		.attr('class', 'flex w-95 items-center justify-center');
 	const c_svg = controls.append("svg")
 		.attr("viewBox", `0 0 ${config.controls_size.width} ${config.controls_size.height}`)
 

@@ -157,8 +157,8 @@ body {
 	width: 100%;
 }
 
-#control-text {
-	width: 500px;
+.notsim5 {
+	width: 100%;
 	display: none;
 }
 
@@ -326,6 +326,10 @@ body {
 		display: block;
 		font-size: 20px;
 	}
+
+	#high { font-size: 16px; }
+	#current { font-size: 16px; }
+	#running-avg { font-size: 16px; }
 
 	#overhead-text {
 		display: none;
