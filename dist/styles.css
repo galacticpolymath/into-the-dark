@@ -71,9 +71,10 @@ body {
 
 #title {
 	display: flex;
+	flex-direction: column-reverse;
 	align-items: center;
 	justify-content: space-between;
-	width: 800px;
+	max-width: 100%;
 }
 
 #fishdiv {
@@ -83,9 +84,7 @@ body {
 }
 
 .fish {
-	position: relative;
-	top: 0px;
-	right: 20px;
+	object-fit: contain;
 }
 
 #display {
@@ -131,40 +130,6 @@ body {
 	color: #000;
 	text-decoration: none;
 	cursor: pointer;
-  }
-
-  #title-text {
-	height: 400px;  /* Set a specific height */
-	display: flex;  /* Use flexbox to align items */
-	flex-direction: column;  /* Align items vertically */
-	justify-content: center;  /* Center items vertically */
-  }
-  
-  #title-text .top {
-	position: relative;  /* Remove from normal document flow */
-	top: 0px;
-	height: 50px;
-	width: 250px;
-	left: 50px;
-  }
-  
-  #title-text .above-center {
-	position: relative;  /* Remove from normal document flow */
-	top: 30px;  /* Position above center */
-	left: 50px;
-  }
-  
-  #title-text .below-center {
-	position: relative;  /* Remove from normal document flow */
-	top: 15px;  /* Position below center */
-	left: 50px;
-	color: gray;
-  }
-  
-  #title-text .bottom {
-	position: relative;  /* Remove from normal document flow */
-	top: 50px;  /* Position at bottom of .container */
-	left: 50px;
   }
 
 #nav {
@@ -233,6 +198,30 @@ body {
 	margin: 15px;
 }
 
+#title-text {
+	display: flex;  /* Use flexbox to align items */
+	flex-direction: column;  /* Align items vertically */
+	justify-content: center;  /* Center items vertically */
+	width: 100%
+}
+
+.top {
+	text-align: center;
+	max-width: 350px;
+}
+
+.above-center {
+	text-align: center;
+}
+
+.below-center {
+	text-align: center;
+}
+
+.bottom {
+	text-align: center;
+}
+
 @media screen and (min-width: 481px) {
 
 	#control-text {
@@ -298,6 +287,40 @@ body {
 		justify-content: space-evenly;
 		margin: 15px;
 		width: 100%;
+	}
+
+	#title {
+		display: flex;
+		flex-direction: column-reverse;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.fish {
+
+	}
+
+	#title-text {
+		display: flex;  /* Use flexbox to align items */
+		flex-direction: column;  /* Align items vertically */
+		justify-content: center;  /* Center items vertically */
+	}
+
+	.top {
+		text-align: center;
+		max-width: 350px;
+	}
+
+	.above-center {
+		text-align: center;
+	}
+
+	.below-center {
+		text-align: center;
+	}
+
+	.bottom {
+		text-align: center;
 	}
 }
 
@@ -371,5 +394,58 @@ body {
 		float: right;
 		width: 50%;
 		margin-right: 5%;
+	}
+
+	#title {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		margin: 0px 87px;
+	}
+
+	.fish {
+		position: relative;
+		top: 0px;
+		right: 20px;
+	}
+
+	#title-text {
+		height: 400px;  /* Set a specific height */
+		display: flex;  /* Use flexbox to align items */
+		flex-direction: column;  /* Align items vertically */
+		justify-content: center;  /* Center items vertically */
+		width: auto;
+	}
+
+	#title-text .top {
+		position: relative;  /* Remove from normal document flow */
+		top: 0px;
+		height: 50px;
+		width: 250px;
+		left: 50px;
+		text-align: left;
+	}
+
+	#title-text .above-center {
+		position: relative;  /* Remove from normal document flow */
+		top: 30px;  /* Position above center */
+		left: 50px;
+		text-align: left;
+	}
+
+	#title-text .below-center {
+		position: relative;  /* Remove from normal document flow */
+		top: 15px;  /* Position below center */
+		left: 50px;
+		color: gray;
+		text-align: left;
+	}
+
+	#title-text .bottom {
+		position: relative;  /* Remove from normal document flow */
+		top: 50px;  /* Position at bottom of .container */
+		left: 50px;
+		text-align: left;
 	}
 }
