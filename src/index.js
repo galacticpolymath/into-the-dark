@@ -40,18 +40,18 @@ function init () {
         <img src="./gp_logo_gradient_transBG.png" alt="Galactic Polymath" id="overhead-logo" class="center">
         <div id="nav" class="mw8 center">
             <img src="./gp_logo_gradient_transBG.png" alt="Galactic Polymath" width="30" height="30" id="navigation-logo">
-            <a href="#" class="nav-link wide-nav active-link" data-mode="0">0. Start</a>
-            <a href="#" class="nav-link wide-nav" data-mode="1">1. Intro</a>
-            <a href="#" class="nav-link wide-nav" data-mode="2">2. Groups</a>
-            <a href="#" class="nav-link wide-nav" data-mode="3">3. Light</a>
-            <a href="#" class="nav-link wide-nav" data-mode="4">4. Dark</a>
-            <a href="#" class="nav-link wide-nav" data-mode="5">5. Experiment</a>
-            <a href="#" class="nav-link mobile-nav active-link" data-mode="0">Start</a>
-            <a href="#" class="nav-link mobile-nav" data-mode="1">Intro</a>
-            <a href="#" class="nav-link mobile-nav" data-mode="2">Groups</a>
-            <a href="#" class="nav-link mobile-nav" data-mode="3">Light</a>
-            <a href="#" class="nav-link mobile-nav" data-mode="4">Dark</a>
-            <a href="#" class="nav-link mobile-nav" data-mode="5">Experiment</a>
+            <a href="#" class="nav-link nav0 wide-nav active-link" data-mode="0">0. Start</a>
+            <a href="#" class="nav-link nav1 wide-nav" data-mode="1">1. Intro</a>
+            <a href="#" class="nav-link nav2 wide-nav" data-mode="2">2. Groups</a>
+            <a href="#" class="nav-link nav3 wide-nav" data-mode="3">3. Light</a>
+            <a href="#" class="nav-link nav4 wide-nav" data-mode="4">4. Dark</a>
+            <a href="#" class="nav-link nav5 wide-nav" data-mode="5">5. Experiment</a>
+            <a href="#" class="nav-link nav0 mobile-nav active-link" data-mode="0">Start</a>
+            <a href="#" class="nav-link nav1 mobile-nav" data-mode="1">Intro</a>
+            <a href="#" class="nav-link nav2 mobile-nav" data-mode="2">Groups</a>
+            <a href="#" class="nav-link nav3 mobile-nav" data-mode="3">Light</a>
+            <a href="#" class="nav-link nav4 mobile-nav" data-mode="4">Dark</a>
+            <a href="#" class="nav-link nav5 mobile-nav" data-mode="5">Experiment</a>
         </div>
         <div id="sim" class="mw8 center cf">
             <div id="title">

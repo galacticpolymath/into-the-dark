@@ -73,7 +73,7 @@ body {
 	display: flex;
 	flex-direction: column-reverse;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: center;
 	max-width: 100%;
 }
 
@@ -292,7 +292,7 @@ body {
 		display: flex;
 		flex-direction: column-reverse;
 		align-items: center;
-		justify-content: space-between;
+		justify-content: center;
 	}
 
 	#title-text {
@@ -391,7 +391,7 @@ body {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		justify-content: space-between;
+		justify-content: center;
 		margin: 0px 87px;
 	}
 

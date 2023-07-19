@@ -1,5 +1,4 @@
 import logoPng from './gp_logo_gradient_transBG.png'
-import * as d3 from 'd3';
 import {each} from 'lodash-es'
 
 let sim;
@@ -9,9 +8,12 @@ window.onload = function() {
 
     for (var i = 0; i < navLinks.length; i++) {
         navLinks[i].addEventListener("click", function(e) {
+            const mode = +e.target.dataset.mode
             e.preventDefault();
-            switchActive(this, navLinks);
-            loadModule(+e.target.dataset.mode);
+
+            const activeNodes = document.getElementsByClassName(`nav${mode}`)
+            switchActive(activeNodes, navLinks);
+            loadModule(mode);
         });
     }
 
@@ -19,11 +21,14 @@ window.onload = function() {
     addBFListener(next, navLinks);
 }
 
-function switchActive (node, navLinks) {
+function switchActive (nodes, navLinks) {
     for (var j = 0; j < navLinks.length; j++) {
         navLinks[j].classList.remove('active-link');
     }
-    node.classList.add('active-link');
+    for (let i = 0; i < nodes.length; i++) {
+        nodes[i].classList.add('active-link');
+    }
+        
 }
 
 function addBFListener (node, navLinks) {
@@ -33,8 +38,8 @@ function addBFListener (node, navLinks) {
         const mode = +e.target.dataset.mode;
         e.preventDefault();
 
-        const activeNode = document.getElementById('nav').children[mode + 1]
-        switchActive(activeNode, navLinks);
+        const activeNodes = document.getElementsByClassName(`nav${mode}`)
+        switchActive(activeNodes, navLinks);
 
         loadModule(mode);
     });
@@ -65,7 +70,6 @@ function backNextLinks(mode, navLinks) {
         addBFListener(document.getElementById('back').firstChild, navLinks);
     }
 
-    // Add Next link first (because of float right)
     if (mode < 5) {
         let newDiv = document.createElement("div");
         let newLink = document.createElement("a");
