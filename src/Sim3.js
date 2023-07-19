@@ -15,7 +15,7 @@ class Sim3 extends BasicSim {
             .style('height', '550px')
             .select('svg')
             .style("height", "270px")
-            .style("width", "500px")
+            .style("width", "100%")
             .attr('viewBox', '0 0 500 270');
 
         d3.select('#overhead-text')

@@ -37,14 +37,21 @@ function init () {
     
     document.body.innerHTML = 
     `<div id="container" class="mw8 center fw w-100">    
+        <img src="./gp_logo_gradient_transBG.png" alt="Galactic Polymath" id="overhead-logo" class="center">
         <div id="nav" class="mw8 center">
-            <img src="./gp_logo_gradient_transBG.png" alt="Galactic Polymath" width="30" height="30">
-            <a href="#" class="nav-link active-link" data-mode="0">0. Start</a>
-            <a href="#" class="nav-link" data-mode="1">1. Intro</a>
-            <a href="#" class="nav-link" data-mode="2">2. Groups</a>
-            <a href="#" class="nav-link" data-mode="3">3. Light</a>
-            <a href="#" class="nav-link" data-mode="4">4. Dark</a>
-            <a href="#" class="nav-link" data-mode="5">5. Experiment</a>
+            <img src="./gp_logo_gradient_transBG.png" alt="Galactic Polymath" width="30" height="30" id="navigation-logo">
+            <a href="#" class="nav-link wide-nav active-link" data-mode="0">0. Start</a>
+            <a href="#" class="nav-link wide-nav" data-mode="1">1. Intro</a>
+            <a href="#" class="nav-link wide-nav" data-mode="2">2. Groups</a>
+            <a href="#" class="nav-link wide-nav" data-mode="3">3. Light</a>
+            <a href="#" class="nav-link wide-nav" data-mode="4">4. Dark</a>
+            <a href="#" class="nav-link wide-nav" data-mode="5">5. Experiment</a>
+            <a href="#" class="nav-link mobile-nav active-link" data-mode="0">Start</a>
+            <a href="#" class="nav-link mobile-nav" data-mode="1">Intro</a>
+            <a href="#" class="nav-link mobile-nav" data-mode="2">Groups</a>
+            <a href="#" class="nav-link mobile-nav" data-mode="3">Light</a>
+            <a href="#" class="nav-link mobile-nav" data-mode="4">Dark</a>
+            <a href="#" class="nav-link mobile-nav" data-mode="5">Experiment</a>
         </div>
         <div id="sim" class="mw8 center cf">
             <div id="title">
