@@ -19,7 +19,7 @@ class Sim1 extends BasicSim {
         d3.select('#control-text')
             .style("position", "relative")
             .html('This is a simulation that models fish behavior. Each<br/>\
-            virtual fish is a point in a data grid.<p/>\
+            virtual fish is a point in a data grid.\
             It has an X and a Y coordinate, a speed, and a direction.<p/>\
             Try changing the speed with the slider below.');
 

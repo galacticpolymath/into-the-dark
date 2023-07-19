@@ -208,6 +208,7 @@ body {
 #control-text {
 	width: 500px;
 	display: none;
+	font-size: 20px;
 }
 
 #overhead-text {
@@ -339,7 +340,7 @@ body {
 	
 	#controls {
 		padding-left: 0px;
-		width: 500px;
+		width: 100%;
 	}
 
 	#sim {
