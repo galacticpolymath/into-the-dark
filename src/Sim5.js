@@ -34,10 +34,8 @@ class Sim5 extends BasicSim {
         this.avg_s_slider = 2;
 
         d3.select("#controls")
-            .style("height", "570px")
             .select("svg")
-            .style("height", "420")
-            .style("width", "450px")
+            .style("width", "100%")
             .attr("viewBox", `0 0 450 420`);
 
         setup_chart(this.data);

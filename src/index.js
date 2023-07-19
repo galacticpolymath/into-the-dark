@@ -71,8 +71,8 @@ function init () {
                 </div>
             </div>
         </div>
-        <div id="backnext" class="bf-links mv3 fr pa2">
-            <div id="next" class="fr ph3 pv1 ba mr5">
+        <div id="backnext" class="center ma4">
+            <div id="next" class="ph3 pv1 ba">
                 <a href="#" data-mode="1" id='first-next'>Next</a>
             </div>
         </div>
