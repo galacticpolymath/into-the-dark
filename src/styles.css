@@ -1,5 +1,4 @@
-@import '~tachyons/css/tachyons.min.css';
-
+@import './tachyons.min.css';
 
 .control-panel .border {
 	fill: none;
@@ -13,15 +12,16 @@
 	stroke-width: 1px;
 }
 
-table {
+#sim1-table {
 	fill: none;
 	position: relative;
 	text-align: center;
 	font-size: 18px;
 }
 
-table td {
+#sim1-table td {
 	min-width: 0px;
+	text-align: center;
 }
 
 .slider text,
@@ -39,11 +39,11 @@ table td {
 #line {
 	fill: none;
 	stroke: steelblue;
-	stroke-width: 1.5px;
+	stroke-width: 2px;
 }
 
 .nav-link {
-	margin-left: 30px;
+	font-size: 14px;
 }
 
 a {
@@ -58,7 +58,7 @@ a.active-link {
 
 #sim {
 	text-align: left;
-	margin-top: 50px;
+	margin-top: 20px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -68,13 +68,15 @@ body {
 	display: flex;
 	height: 100vh;
 	flex-direction: column;
+	font-family: 'Montserrat';
 }
 
 #title {
 	display: flex;
+	flex-direction: column-reverse;
 	align-items: center;
-	justify-content: space-between;
-	width: 800px;
+	justify-content: center;
+	max-width: 100%;
 }
 
 #fishdiv {
@@ -84,9 +86,7 @@ body {
 }
 
 .fish {
-	position: relative;
-	top: 0px;
-	right: 20px;
+	object-fit: contain;
 }
 
 #display {
@@ -134,42 +134,34 @@ body {
 	cursor: pointer;
   }
 
-  #title-text {
-	height: 400px;  /* Set a specific height */
-	display: flex;  /* Use flexbox to align items */
-	flex-direction: column;  /* Align items vertically */
-	justify-content: center;  /* Center items vertically */
-  }
-  
-  #title-text .top {
-	position: relative;  /* Remove from normal document flow */
-	top: 0px;
-	height: 50px;
-	width: 250px;
-	left: 50px;
-  }
-  
-  #title-text .above-center {
-	position: relative;  /* Remove from normal document flow */
-	top: 30px;  /* Position above center */
-	left: 50px;
-  }
-  
-  #title-text .below-center {
-	position: relative;  /* Remove from normal document flow */
-	top: 15px;  /* Position below center */
-	left: 50px;
-	color: gray;
-  }
-  
-  #title-text .bottom {
-	position: relative;  /* Remove from normal document flow */
-	top: 50px;  /* Position at bottom of .container */
-	left: 50px;
-  }
+#scoreTable {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: 'Montserrat';
+}
+
+#scoreTable th, td {
+    padding: 6px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+#scoreTable th {
+    background-color: #f2f2f2;
+    color: #333;
+	font-size: 18px,
+}
+
+#scoreTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#scoreTable tr:hover {
+    background-color: #ddd;
+}
 
 #nav {
-	font-family: Arial;
+	font-family: 'Montserrat';
 	border-style: solid;
 	border-width: 1px;
 	background-color: AliceBlue;
@@ -177,10 +169,10 @@ body {
 	width: 100%;
 	height: 50px;
 	display: flex;
-	justify-content: center;
+	justify-content: space-evenly;
 	align-items: center;
 	/* padding-left: 50px; */
-	margin-top: 40px;
+	margin-top: 15px;
 }
 
 #display {
@@ -193,15 +185,14 @@ body {
 	width: 100%;
 }
 
-#control-text {
-	width: 500px;
+.notsim5 {
+	width: 100%;
 	display: none;
 }
 
 #overhead-text {
-	padding-left: 5px;
-	padding-right: 20px;
 	width: 100%;
+	margin-bottom: 10px;
 	word-wrap: break-word;
 	display: block;
 }
@@ -232,7 +223,7 @@ body {
 #backnext {
 	display: flex;
 	justify-content: space-evenly;
-	margin: 15px;
+	width: 100%;
 }
 
 #title-text {
@@ -244,7 +235,7 @@ body {
 
 .top {
 	text-align: center;
-	max-width: 350px;
+	max-width: 100%;
 }
 
 .above-center {
@@ -257,6 +248,7 @@ body {
 
 .bottom {
 	text-align: center;
+	margin-top: 0px;
 }
 
 @media screen and (min-width: 481px) {
@@ -267,15 +259,11 @@ body {
 	}
 
 	#overhead-text {
-		padding-left: 5px;
-		padding-right: 20px;
-		width: 100%;
-		word-wrap: break-word;
 		display: none;
 	}
 
 	#nav {
-		font-family: Arial;
+		font-family: 'Montserrat';
 		border-style: solid;
 		border-width: 1px;
 		background-color: AliceBlue;
@@ -284,7 +272,7 @@ body {
 		max-width: 830px;
 		height: 50px;
 		display: flex;
-		justify-content: center;
+		justify-content: space-evenly;
 		align-items: center;
 		/* padding-left: 50px; */
 		margin-top: 40px;
@@ -319,14 +307,13 @@ body {
 	}
 
 	.nav-link {
-		margin-left: 30px;
+		/*margin-left: 30px;*/
 		font-size: 18px;
 	}
 
 	#backnext {
 		display: flex;
 		justify-content: space-evenly;
-		margin: 15px;
 		width: 100%;
 	}
 
@@ -334,11 +321,7 @@ body {
 		display: flex;
 		flex-direction: column-reverse;
 		align-items: center;
-		justify-content: space-between;
-	}
-
-	.fish {
-
+		justify-content: center;
 	}
 
 	#title-text {
@@ -347,20 +330,20 @@ body {
 		justify-content: center;  /* Center items vertically */
 	}
 
-	.top {
+	#title-text .top {
 		text-align: center;
-		max-width: 350px;
+		max-width: 100%;
 	}
 
-	.above-center {
-		text-align: center;
-	}
-
-	.below-center {
+	#title-text .above-center {
 		text-align: center;
 	}
 
-	.bottom {
+	#title-text .below-center {
+		text-align: center;
+	}
+
+	#title-text .bottom {
 		text-align: center;
 	}
 }
@@ -370,18 +353,19 @@ body {
 	#control-text {
 		width: 500px;
 		display: block;
+		font-size: 20px;
 	}
 
+	#high { font-size: 16px; }
+	#current { font-size: 16px; }
+	#running-avg { font-size: 16px; }
+
 	#overhead-text {
-		padding-left: 5px;
-		padding-right: 20px;
-		width: 100%;
-		word-wrap: break-word;
 		display: none;
 	}
 
 	#nav {
-		font-family: Arial;
+		font-family: 'Montserrat';
 		border-style: solid;
 		border-width: 1px;
 		background-color: AliceBlue;
@@ -389,7 +373,7 @@ body {
 		width: 830px;
 		height: 50px;
 		display: flex;
-		justify-content: center;
+		justify-content: space-evenly;
 		align-items: center;
 		/* padding-left: 50px; */
 		margin-top: 40px;
@@ -428,24 +412,15 @@ body {
 	}
 
 	.nav-link {
-		margin-left: 30px;
+		/*margin-left: 30px;*/
 		font-size: 18px;
-	}
-
-	#backnext {
-		display: flex;
-		justify-content: space-evenly;
-		margin: 15px;
-		float: right;
-		width: 50%;
-		margin-right: 5%;
 	}
 
 	#title {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		justify-content: space-between;
+		justify-content: center;
 		margin: 0px 87px;
 	}
 
@@ -456,7 +431,7 @@ body {
 	}
 
 	#title-text {
-		height: 400px;  /* Set a specific height */
+		/*height: 400px;  Set a specific height */
 		display: flex;  /* Use flexbox to align items */
 		flex-direction: column;  /* Align items vertically */
 		justify-content: center;  /* Center items vertically */
@@ -464,33 +439,33 @@ body {
 	}
 
 	#title-text .top {
-		position: relative;  /* Remove from normal document flow */
+		/*position: relative;  /* Remove from normal document flow 
 		top: 0px;
+		left: 50px;*/
 		height: 50px;
-		width: 250px;
-		left: 50px;
+		max-width: 100%;
 		text-align: left;
 	}
 
 	#title-text .above-center {
-		position: relative;  /* Remove from normal document flow */
-		top: 30px;  /* Position above center */
-		left: 50px;
+		/*position: relative;  /* Remove from normal document flow 
+		top: 30px;  /* Position above center 
+		left: 50px;*/
 		text-align: left;
 	}
 
 	#title-text .below-center {
-		position: relative;  /* Remove from normal document flow */
-		top: 15px;  /* Position below center */
-		left: 50px;
+		/*position: relative;  /* Remove from normal document flow 
+		top: 15px;  /* Position below center 
+		left: 50px;*/
 		color: gray;
 		text-align: left;
 	}
 
 	#title-text .bottom {
-		position: relative;  /* Remove from normal document flow */
-		top: 50px;  /* Position at bottom of .container */
-		left: 50px;
+		/*position: relative;  /* Remove from normal document flow 
+		top: 50px;  /* Position at bottom of .container 
+		left: 50px;*/
 		text-align: left;
 	}
 }

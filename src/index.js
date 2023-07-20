@@ -1,5 +1,6 @@
 import fishPng from './circle fish school.png'
 import horizLogo from './gp_horiz_logo.png'
+import favicon from './favicon.ico'
 import './onload.js'
 import css from "./styles.css";
 
@@ -28,14 +29,6 @@ export default function title () {
 //<link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">`
 
 function init () {
-    document.head.innerHTML = 
-        `<meta charset="utf-8">
-		<title>Into the Dark</title>
-		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<link rel="shortcut icon" href="#" />
-        <link rel="stylesheet" href="styles.css"></link>`
-        
-    
     document.body.innerHTML = 
     `<div id="container" class="mw8 center fw w-100">    
         <img src="./gp_logo_gradient_transBG.png" alt="Galactic Polymath" id="overhead-logo" class="center">
