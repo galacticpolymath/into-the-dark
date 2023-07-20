@@ -72,7 +72,7 @@ export function setup_chart(data) {
         .attr('x', 0).attr('y', 10)
         .text('% fish in the dark')
         .style('font-size', '12px')
-        .attr('transform', 'translate(2,130)rotate(270)')
+        .attr('transform', 'translate(2,140)rotate(270)')
 
     const legend_y = 170
     const legend_x = 45
