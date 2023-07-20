@@ -53,7 +53,7 @@ class Sim5 extends BasicSim {
         this.ticks = 1;
         this.updateSliderAverages()
         this.duration = Duration.fromObject({ seconds: 0 });
-        this.start = DateTime.now();
+        this.start = {};
         this.data = new Array(1000).fill(0);
         d3.select('#line').datum(this.data)
         this.sliders.speed_slider.value(2)
@@ -89,11 +89,22 @@ class Sim5 extends BasicSim {
     go() {
         const maxDuration = Duration.fromObject({ seconds: 30 });
 
-        const totalDuration = this.duration + DateTime.now().diff(this.start, 'seconds')
-        //console.log(this.ticks, totalDuration.toString(), this.avg_s_slider);
+        // If 0 seconds, increment trial #
+        if (this.duration.seconds === 0) {
+            d3.select('#trialNum').text(`Trial: ${this.trialNumber}`)
+            d3.select('#timeLeft').text('Time Left: 30s');
+        }
 
+        const now = DateTime.now();
+        const newDuration = this.duration.plus(now.diff(this.start, 'seconds'));
+        if (Math.floor(newDuration.seconds) > Math.floor(this.duration.seconds)) {
+            d3.select('#timeLeft').text(`Time Left: ${30 - Math.floor(newDuration.seconds)}s`);
+        }
+        this.duration = newDuration;
+        this.start = now;
+         
         // If 30 seconds has elapsed, stop;
-        if (totalDuration >= maxDuration) {
+        if (this.duration >= maxDuration) {
             if (this.timer.stop) {
                 const slider_setting = d3.scaleLinear()
                     .domain([0, 4])
