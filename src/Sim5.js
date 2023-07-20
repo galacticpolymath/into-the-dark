@@ -46,6 +46,20 @@ class Sim5 extends BasicSim {
         
     }
 
+    soft_reset(params) {
+        this.total = 0;
+        this.mean_hidden = 0;
+        this.best_score = 0;
+        this.ticks = 1;
+        this.duration = Duration.fromObject({ seconds: 0 });
+        this.start = {};
+        this.data = new Array(1000).fill(0);
+        d3.select('#line').datum(this.data)
+        this.updateSliderAverages()
+        this.playing = false;
+        document.getElementById('playpause').src = './play.svg';
+    }
+
     reset(params) {
         this.total = 0;
         this.mean_hidden = 0;
@@ -93,6 +107,7 @@ class Sim5 extends BasicSim {
         if (this.duration.seconds === 0) {
             d3.select('#trialNum').text(`Trial: ${this.trialNumber}`)
             d3.select('#timeLeft').text('Time Left: 30s');
+            this.initialize(this.params);
         }
 
         const now = DateTime.now();
@@ -117,8 +132,8 @@ class Sim5 extends BasicSim {
                     this.mean_hidden
                 ]);
                 updateTable(this.results);
-                this.reset(this.params);
 
+                this.soft_reset(this.params);
                 this.trialNumber++;
             }
             return

@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 const n = 1000
 const perc = d3.format(".0%");
 
-const margin = {top: 10, right: 30, bottom: 20, left: 50},
+const margin = {top: 10, right: 30, bottom: 20, left: 60},
     width = 420 - margin.left - margin.right,
     height = 150 - margin.top - margin.bottom
 
@@ -71,7 +71,7 @@ export function setup_chart(data) {
         .attr('id', 'y-label')
         .attr('x', 0).attr('y', 10)
         .text('% fish in the dark')
-        .style('font-size', '12px')
+        .style('font-size', '16px')
         .attr('transform', 'translate(2,140)rotate(270)')
 
     const legend_y = 170
@@ -111,12 +111,12 @@ export function setup_chart(data) {
 
     svg.append('text')
         .attr('id', 'trialNum')
-        .attr('x', 60).attr('y', 30)
+        .attr('x', 68).attr('y', 30)
         .text('Trial: 1')
         .style('font-size', '12px')
     svg.append('text')
         .attr('id', 'timeLeft')
-        .attr('x', 60).attr('y', 40)
+        .attr('x', 68).attr('y', 40)
         .text('Time Left: 30s')
         .style('font-size', '12px')
 }
