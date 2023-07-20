@@ -6,6 +6,7 @@ import parameters from './parameters'
 import setup_modal from './Sim5_modal'
 import { Duration, DateTime } from "luxon";
 import { updateAvg } from './utils';
+import { setupScores, updateTable } from './Sim5_scores';
 
 class Sim5 extends BasicSim {
     constructor () {
@@ -29,19 +30,20 @@ class Sim5 extends BasicSim {
         this.avg_ar = 2;
         this.avg_al = 1;
         this.avg_s = 2;
-        this.avg_ar_slider = 2;
-        this.avg_al_slider = 2;
-        this.avg_s_slider = 2;
+        this.trialNumber = 1;
+        this.results = [];
 
         d3.select("#controls")
             .select("svg")
             .style("width", "100%")
-            .attr("viewBox", `0 0 500 420`);
+            .attr("viewBox", `0 0 500 350`);
 
         this.sliders = setup_sliders(this.params);
         d3.select('#control-text').classed('notsim5', false);
         setup_chart(this.data);
+        setupScores(this);
         setup_modal();
+        
     }
 
     reset(params) {
@@ -66,16 +68,13 @@ class Sim5 extends BasicSim {
         this.avg_ar = 2;
         this.avg_al = 1;
         this.avg_s = 2;
-        this.avg_ar_slider = 2;
-        this.avg_al_slider = 2;
-        this.avg_s_slider = 2;
+        this.playing = false;
+        document.getElementById('playpause').src = './play.svg';
+
         this.initialize(this.params);
     }
 
     updateSliderAverages() {
-        const slider_setting = d3.scaleLinear()
-            .domain([0, 4])
-            .range([-1, 1]);
         let speedSliderVal = 2, arSliderVal = 2, alSliderVal = 1;
         if (this.sliders) {
             speedSliderVal = this.sliders.speed_slider.value();
@@ -85,9 +84,6 @@ class Sim5 extends BasicSim {
         this.avg_s = updateAvg(this.avg_s, speedSliderVal, this.ticks);
         this.avg_ar = updateAvg(this.avg_ar, arSliderVal, this.ticks);
         this.avg_al = updateAvg(this.avg_al, alSliderVal, this.ticks);
-        this.avg_ar_slider = slider_setting(this.avg_ar);
-        this.avg_al_slider = slider_setting(this.avg_al * 2);
-        this.avg_s_slider = slider_setting(this.avg_s);
     }
 
     go() {
@@ -99,7 +95,20 @@ class Sim5 extends BasicSim {
         // If 30 seconds has elapsed, stop;
         if (totalDuration >= maxDuration) {
             if (this.timer.stop) {
-                this.timer.stop()
+                const slider_setting = d3.scaleLinear()
+                    .domain([0, 4])
+                    .range([-1, 1]);
+                this.timer.stop();
+                this.results.push([this.trialNumber, 
+                    slider_setting(this.avg_s).toFixed(1), 
+                    slider_setting(this.avg_al * 2).toFixed(1), 
+                    slider_setting(this.avg_ar).toFixed(1), 
+                    this.mean_hidden
+                ]);
+                updateTable(this.results);
+                this.reset(this.params);
+
+                this.trialNumber++;
             }
             return
         }

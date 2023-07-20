@@ -269,7 +269,7 @@ export default {
         display_border:true,
         controls_grid:{nx:12,ny:12},
         display_size: {width:500,height:500},
-        controls_size: {width:600,height:600},
+        controls_size: {width:600,height:400},
         display_class:"fl w-100 w-50-ns ph3-ns",
         controls_class:"fl w-100 w-50-ns ph3-ns",
         container_class:"mw8 center cf", 

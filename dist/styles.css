@@ -12,15 +12,16 @@
 	stroke-width: 1px;
 }
 
-table {
+#sim1-table {
 	fill: none;
 	position: relative;
 	text-align: center;
 	font-size: 18px;
 }
 
-table td {
+#sim1-table td {
 	min-width: 0px;
+	text-align: center;
 }
 
 .slider text,
@@ -132,6 +133,32 @@ body {
 	cursor: pointer;
   }
 
+#scoreTable {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: Arial, sans-serif;
+}
+
+#scoreTable th, td {
+    padding: 6px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+#scoreTable th {
+    background-color: #f2f2f2;
+    color: #333;
+	font-size: 18px,
+}
+
+#scoreTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#scoreTable tr:hover {
+    background-color: #ddd;
+}
+
 #nav {
 	font-family: Arial;
 	border-style: solid;
@@ -220,6 +247,7 @@ body {
 
 .bottom {
 	text-align: center;
+	margin-top: 0px;
 }
 
 @media screen and (min-width: 481px) {

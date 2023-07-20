@@ -13,6 +13,7 @@ export default function title () {
             <img id="home-logo" class='top' src="./gp_horiz_logo.png" alt="GP logo">
             <h1 class='above-center' style='font-size:3em'>Swimming <br>in the Dark</h1>
             <h3 class='below-center' style='font-size:2em'>A simulation of fish <br>schooling behavior</h3>
+            <h6 class='above-bottom'>Based on an <a href='https://www.complexity-explorables.org/explorables/into-the-dark/'><b><i>explorable</b></i></a> by Dirk Brockman, PhD</h6>
             <h6 class='bottom'>This Simulation Connects to Part 4 of GP's "Animal Collective" Lesson</h6>
         </div>
         <div id="fishdiv">
@@ -59,6 +60,7 @@ function init () {
                     <img class='top' src="./gp_horiz_logo.png" alt="GP logo">
                     <h1 class='above-center' style='font-size:3em'>Swimming <br>in the Dark</h1>
                     <h3 class='below-center' style='font-size:2em'>A simulation of fish <br>schooling behavior</h3>
+                    <h6 class='above-bottom'>Based on an <a href='https://www.complexity-explorables.org/explorables/into-the-dark/'><u><i>explorable</u></i></a> by Dirk Brockman, PhD</h6>
                     <h6 class='bottom'>This Simulation Connects to Part 4 of GP's "Animal Collective" Lesson</h6>
                 </div>
                 <div id="fishdiv">

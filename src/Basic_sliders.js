@@ -1,4 +1,5 @@
 import * as d3 from 'd3';
+import { DateTime } from "luxon";
 
 function setButtonState (sim, playpause) {
     if (sim.playing) {
@@ -33,6 +34,7 @@ export default function (sim) {
         setButtonState(sim, playpause);
 
         if (sim.playing) {
+            if (sim.start) { sim.start = DateTime.now(); }
             sim.timer = d3.interval(()=>sim.go());
         } else {
             sim.timer.stop();
