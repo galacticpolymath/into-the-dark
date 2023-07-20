@@ -32,7 +32,8 @@ export function setup_chart(data) {
         .attr("id", "clip")
         .append("rect")
         .attr("width", width)
-        .attr("height", height);
+        .attr("height", height + 5)
+         .attr("y", -2);
 
     g.append("g")
         .attr("class", "axis axis--x")
@@ -54,14 +55,14 @@ export function setup_chart(data) {
 
     g.append('line')
         .attr('id', 'avg-line')
-        .style('stroke-width', 1)
+        .style('stroke-width', 2)
         .style('stroke', 'darkgray')
         .attr('x1', 1).attr('y1', y(0))
         .attr('x2', width).attr('y2', y(0))
 
     g.append('line')
         .attr('id', 'best-line')
-        .style('stroke-width', 1)
+        .style('stroke-width', 2)
         .style('stroke', '#cb1f83')
         .attr('x1', 1).attr('y1', y(0))
         .attr('x2', width).attr('y2', y(0))
@@ -77,7 +78,7 @@ export function setup_chart(data) {
     const legend_x = 45
     // High score text
     svg.append('line')
-        .style('stroke-width', 1)
+        .style('stroke-width', 2)
         .style('stroke', '#cb1f83')
         .attr('x1', legend_x + 250).attr('y1', legend_y-5)
         .attr('x2', legend_x + 260).attr('y2', legend_y-5)
@@ -88,7 +89,7 @@ export function setup_chart(data) {
 
     // Running average text
     svg.append('line')
-        .style('stroke-width', 1)
+        .style('stroke-width', 2)
         .style('stroke', 'darkgray')
         .attr('x1', legend_x + 125).attr('y1', legend_y-5)
         .attr('x2', legend_x + 135).attr('y2', legend_y-5)
@@ -99,8 +100,8 @@ export function setup_chart(data) {
 
     // Current average text
     svg.append('line')
-        .style('stroke-width', 1)
-        .style('stroke', 'blue')
+        .style('stroke-width', 2)
+        .style('stroke', 'rgb(63, 120, 168)')
         .attr('x1', legend_x).attr('y1', legend_y - 5)
         .attr('x2', legend_x + 10).attr('y2', legend_y - 5)
     svg.append('text')
@@ -121,8 +122,8 @@ export function setup_chart(data) {
 }
 
 export function chart_tick(sim, val) {
-    const avg = Math.min(.99, sim.mean_hidden);
-    const best = Math.min(.99, sim.best_score);
+    const avg = sim.mean_hidden;
+    const best = sim.best_score;
     const data = sim.data;    
 
     // Push a new data point onto the back.
