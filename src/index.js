@@ -70,6 +70,10 @@ function init () {
         </div>
     </div>
     `
-}
+
+    document.cookie = "res=; Max-Age=-99999999;";
+    document.cookie = "res=; Max-Age=1704085200; path=/;";
+};
+
 
 init();

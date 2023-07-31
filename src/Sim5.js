@@ -31,7 +31,8 @@ class Sim5 extends BasicSim {
         this.avg_al = 1;
         this.avg_s = 2;
         this.trialNumber = 1;
-        this.results = [];
+        const cookie = document.cookie.replace(/(?:(?:^|.*;\s*)res\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+        this.results = cookie ? JSON.parse(decodeURIComponent(cookie)) : [];
 
         d3.select("#controls")
             .select("svg")
@@ -100,8 +101,30 @@ class Sim5 extends BasicSim {
         this.avg_al = updateAvg(this.avg_al, alSliderVal, this.ticks);
     }
 
+    trial_finish() {
+        if (this.timer.stop) {
+            const slider_setting = d3.scaleLinear()
+                .domain([0, 4])
+                .range([-1, 1]);
+            this.timer.stop();
+            this.results.push([//this.trialNumber, 
+                slider_setting(this.avg_s).toFixed(1), 
+                slider_setting(this.avg_al * 2).toFixed(1), 
+                slider_setting(this.avg_ar).toFixed(1), 
+                Math.round(this.mean_hidden * 1000) / 1000
+            ]);
+            updateTable(this.results);
+
+            const newCookie = encodeURIComponent(JSON.stringify(this.results));
+            document.cookie = "res=" + newCookie + "; Max-Age=1704085200; path=/";
+
+            this.soft_reset(this.params);
+            this.trialNumber++;
+        }
+    }
+
     go() {
-        const maxDuration = Duration.fromObject({ seconds: 30 });
+        const maxDuration = Duration.fromObject({ seconds: 3 });
 
         // If 0 seconds, increment trial #
         if (this.duration.seconds === 0) {
@@ -120,22 +143,7 @@ class Sim5 extends BasicSim {
          
         // If 30 seconds has elapsed, stop;
         if (this.duration >= maxDuration) {
-            if (this.timer.stop) {
-                const slider_setting = d3.scaleLinear()
-                    .domain([0, 4])
-                    .range([-1, 1]);
-                this.timer.stop();
-                this.results.push([this.trialNumber, 
-                    slider_setting(this.avg_s).toFixed(1), 
-                    slider_setting(this.avg_al * 2).toFixed(1), 
-                    slider_setting(this.avg_ar).toFixed(1), 
-                    this.mean_hidden
-                ]);
-                updateTable(this.results);
-
-                this.soft_reset(this.params);
-                this.trialNumber++;
-            }
+            this.trial_finish(this)
             return
         }
 

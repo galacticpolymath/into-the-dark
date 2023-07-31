@@ -138,6 +138,10 @@ body {
     border-collapse: collapse;
     width: 100%;
     font-family: 'Montserrat';
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 #scoreTable th, td {
