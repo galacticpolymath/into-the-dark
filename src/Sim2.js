@@ -1,5 +1,6 @@
 import BasicSim from './BasicSim'
 import setup_sliders from './Sim2_sliders.js'
+import setup_modal from './Sim2_modal'
 import * as d3 from "d3";
 import parameters from './parameters'
 
@@ -19,29 +20,17 @@ class Sim2 extends BasicSim {
             .attr('viewBox', '0 0 500 270');
 
         d3.select('#overhead-text')
-            .html('So far, the fish have all been moving randomly on their own. We\
-                can simulate group behavior by introducing 2 new variables and\
-                changing the algorithm (simulation rules). On this page, each\
-                fish <i>(i)</i> will follow its nearest neighbor if it falls within the\
-                defined attraction radius.<p/>\
-                <b>Play with the sliders, explore, and observe! </b><p/>\
-                New Variables:\
+            .html('New Variables:\
                 <br>• <b>N</b>: Number of fish \
                 <br>• <b>Attraction Radius</b>: the maximum distance between a \
                 nearest neighbor" can be for a fish to follow it. <p/>\
                 <b>Questions for your exploration</b>: <p/>\
-                1. How many fish are in a school? Is there a "magic number" N \
+                1. Is there a "magic number" N \
                 for which schooling behavior emerges? <p/>\
                 2. How does Attraction Radius affect schooling behavior?');
 
         d3.select('#control-text')
-            .html('So far, the fish have all been moving randomly on their own. We\
-                can simulate group behavior by introducing 2 new variables and\
-                changing the algorithm (simulation rules). On this page, each\
-                fish <i>(i)</i> will follow its nearest neighbor if it falls within the\
-                defined attraction radius.<p/>\
-                <b>Play with the sliders, explore, and observe! </b><p/>\
-                New Variables:\
+            .html('New Variables:\
                 <br>• <b>N</b>: Number of fish \
                 <br>• <b>Attraction Radius</b>: maximum distance between a fish and its\
                 "nearest neighbor" for the fish to follow it. <p/>\
@@ -51,7 +40,7 @@ class Sim2 extends BasicSim {
                 2. How does Attraction Radius affect schooling behavior?');
 
         this.sliders = setup_sliders(params);
-        //document.getElementById('#controls').select('table').remove();
+        setup_modal();
     }
 
     go() {

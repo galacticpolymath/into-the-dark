@@ -2,7 +2,7 @@ import * as d3 from 'd3';
 import {sliderHorizontal} from 'd3-simple-slider';
 
 export default (params) => {
-    const sliders_y = 35;
+    const sliders_y = 50;
     const slider_spacing = 100;
     const slider_width = 480;
 

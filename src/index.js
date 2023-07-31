@@ -14,8 +14,8 @@ export default function title () {
             <img id="home-logo" class='top' src="./gp_horiz_logo.png" alt="GP logo">
             <h1 class='above-center' style='font-size:3em'>Swimming <br>in the Dark</h1>
             <h3 class='below-center' style='font-size:2em'>A simulation of fish <br>schooling behavior</h3>
-            <h6 class='above-bottom'>Based on an <a href='https://www.complexity-explorables.org/explorables/into-the-dark/'><b><i>explorable</b></i></a> by Dirk Brockman, PhD</h6>
-            <h6 class='bottom'>This Simulation Connects to Lesson 4 of our <a href="https://www.galacticpolymath.com/lessons/en-US/7">"Animal Collective"</a> mini-unit</h6>
+            <h6 class='above-bottom'>Based on an <a href='https://www.complexity-explorables.org/explorables/into-the-dark/'><u><i>explorable</u></i></a> by Dirk Brockman, PhD</h6>
+                    <h6 class='bottom'>This Simulation Connects to Lesson 4 of our <a href="https://www.galacticpolymath.com/lessons/en-US/7"><i><u>Animal Collective</i></u></a> mini-unit</h6>
         </div>
         <div id="fishdiv">
                 <img src="./circle fish school.png" alt="fish collective behavior" 
@@ -69,6 +69,7 @@ function init () {
             </div>
         </div>
     </div>
+    <div id="overlay"></div>
     `
 
     document.cookie = "res=; Max-Age=-99999999;";

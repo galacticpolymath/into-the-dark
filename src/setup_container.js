@@ -7,9 +7,11 @@ import * as d3 from "d3"
 export default (config)=>{
 	const container = d3.select('#sim').classed("mw8 center cf",true);
 	
+	container.append('div').attr('id', 'overhead-info').style("width", '100%')
+		.style("justify-content", "center");
 	container.append('div').attr('id', 'overhead-text')
 		.style("width", "100%")
-		.style("word-wrap", "break-word");	
+		.style("word-wrap", "break-word")
 
 	const display = container.append("div")
 		.attr("id","display")
@@ -23,6 +25,7 @@ export default (config)=>{
 		.attr("class","control-panel")
 		.classed(config.controls_class,true)
 	
+	controls.append('div').attr('id', 'info-container').style("width", '100%');
 	controls.append('div').attr('id', 'control-text').style("width", '100%').classed('notsim5', true);
 	controls.append('div').attr('id', 'button-container').style('height', '50px')	
 		.attr('class', 'flex w-95 items-center justify-center');

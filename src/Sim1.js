@@ -1,6 +1,7 @@
 import BasicSim from './BasicSim'
 import setup_sliders from './Sim1_sliders.js'
 import setup_table from './Sim1_table.js'
+import setup_modal from './Sim1_modal'
 import * as d3 from "d3";
 import parameters from './parameters'
 
@@ -16,21 +17,15 @@ class Sim1 extends BasicSim {
 
         d3.select('#overhead-text')
             .style("position", "relative")
-            .html('This is a simulation that models fish behavior. Each\
-            virtual fish is a point in a data grid.\
-            It has an X and a Y coordinate, a speed, and a direction.\
-            Try changing the speed with the slider below.');
+            .html('<b>Question: </b>\
+            <p> • Do you understand how the table values describe the virtual fish?');
 
         d3.select('#control-text')
             .style("position", "relative")
-            .html('This is a simulation that models fish behavior. Each\
-            virtual fish is a point in a data grid.\
-            It has an X and a Y coordinate, a speed, and a direction.\
-            Try changing the speed with the slider below.');
+            .html('<b>Question: </b>\
+            <p> • Do you understand how the table values describe the virtual fish?</ul>');
 
         setup_sliders(this.params);
-
-        
 
         setup_table(this.agents);
             
@@ -102,6 +97,8 @@ class Sim1 extends BasicSim {
             .style('font-size', '20px')
             .style('text-anchor', 'middle')
             .attr('font-weight', 600);
+
+        setup_modal();
     }
 
     go() {
