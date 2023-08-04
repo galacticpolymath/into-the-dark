@@ -124,7 +124,7 @@ class Sim5 extends BasicSim {
     }
 
     go() {
-        const maxDuration = Duration.fromObject({ seconds: 3 });
+        const maxDuration = Duration.fromObject({ seconds: 30 });
 
         // If 0 seconds, increment trial #
         if (this.duration.seconds === 0) {
