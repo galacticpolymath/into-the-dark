@@ -20,7 +20,7 @@ const line = d3.line()
     .y(function(d, i) { return y(d); })
     .curve(d3.curveLinear);
     
-export function setup_chart(data) {
+export function setup_chart(sim) {
     const controlText = d3.select('#control-text').classed('notsim5', false)
 
     const svg = controlText.append('svg').attr('id', '#chart')
@@ -47,7 +47,7 @@ export function setup_chart(data) {
     g.append("g")
         .attr("clip-path", "url(#clip)")
         .append("path")
-        .datum(data)
+        .datum(sim.data)
         .attr("id", "line")
         .transition()
         .duration(500)
@@ -112,7 +112,7 @@ export function setup_chart(data) {
     svg.append('text')
         .attr('id', 'trialNum')
         .attr('x', 68).attr('y', 30)
-        .text('Trial: 1')
+        .text(`Trial: ${sim.trialNumber}`)
         .style('font-size', '12px')
     svg.append('text')
         .attr('id', 'timeLeft')

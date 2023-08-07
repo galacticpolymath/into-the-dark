@@ -11,7 +11,7 @@ export function setupScores (sim) {
     const res = cookie ? JSON.parse(decodeURIComponent(cookie)) : []; // this should hold prev results
 
     let table = document.createElement('table');
-    let headers = ['Avg Speed Setting', 'Avg Alignment Setting', 'Avg Attraction Setting', 'Avg % Fish In The Dark'];
+    let headers = ['Trial Number', 'Avg Speed', 'Avg Alignment', 'Avg Attraction', 'Avg % In The Dark'];
     
     // header row
     let headerRow = document.createElement('tr');
@@ -30,9 +30,9 @@ export function setupScores (sim) {
         for (let i = 0; i < res.length; i++) {
             let data = res[i];
             let row = document.createElement('tr');
-            for(let j = 0; j < 4; j++) {
+            for(let j = 0; j < headers.length; j++) {
                 let cell = document.createElement('td');
-                if (j == 3) {
+                if (j == headers.length - 1) {
                     cell.textContent = perc(+data[j]);}
                 else {
                     cell.textContent = +data[j];
@@ -85,9 +85,9 @@ export function updateTable (res) {
 
     if (res.length > 1) {
         let row = document.createElement('tr');
-        for(let j = 0; j < 4; j++) {
+        for(let j = 0; j < 5; j++) {
             let cell = document.createElement('td');
-            if (j == 3) {
+            if (j == 4) {
                 cell.textContent = perc(data[j]);}
             else {
                 cell.textContent = data[j];
@@ -98,9 +98,9 @@ export function updateTable (res) {
     }
     else {
         const cells = document.getElementsByTagName('td');
-        for(let j = 0; j < 4; j++) {
-            if (j == 3) {
-                cells[j].textContent = perc(data[j]);
+        for(let j = 0; j < 5; j++) {
+            if (j == 4) {
+                cells[j].textContent = ${perc(data[j])};
             }
             else {cells[j].textContent = data[j];}
         }

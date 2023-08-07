@@ -32,7 +32,13 @@ class Sim5 extends BasicSim {
         this.avg_s = 2;
         this.trialNumber = 1;
         const cookie = document.cookie.replace(/(?:(?:^|.*;\s*)res\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-        this.results = cookie ? JSON.parse(decodeURIComponent(cookie)) : [];
+        if (cookie) {
+            this.results = JSON.parse(decodeURIComponent(cookie));
+            this.trialNumber = this.results[this.results.length - 1][0]
+        } 
+        else {
+            this.results = []
+        }
 
         d3.select("#controls")
             .select("svg")
@@ -41,7 +47,7 @@ class Sim5 extends BasicSim {
 
         this.sliders = setup_sliders(this.params);
         d3.select('#control-text').classed('notsim5', false);
-        setup_chart(this.data);
+        setup_chart(this);
         setupScores(this);
         setup_modal();
         
@@ -107,7 +113,7 @@ class Sim5 extends BasicSim {
                 .domain([0, 4])
                 .range([-1, 1]);
             this.timer.stop();
-            this.results.push([//this.trialNumber, 
+            this.results.push([this.trialNumber, 
                 slider_setting(this.avg_s).toFixed(1), 
                 slider_setting(this.avg_al * 2).toFixed(1), 
                 slider_setting(this.avg_ar).toFixed(1), 
@@ -119,16 +125,17 @@ class Sim5 extends BasicSim {
             document.cookie = "res=" + newCookie + "; Max-Age=1704085200; path=/";
 
             this.soft_reset(this.params);
-            this.trialNumber++;
         }
     }
 
     go() {
         const maxDuration = Duration.fromObject({ seconds: 30 });
 
-        // If 0 seconds, increment trial #
         if (this.duration.seconds === 0) {
-            d3.select('#trialNum').text(`Trial: ${this.trialNumber}`)
+            if (this.results.length != 0) {
+                this.trialNumber++;
+                d3.select('#trialNum').text(`Trial: ${this.trialNumber}`);
+            }
             d3.select('#timeLeft').text('Time Left: 30s');
             this.initialize(this.params);
         }
