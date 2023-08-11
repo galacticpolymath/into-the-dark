@@ -36,12 +36,12 @@ export default function setup_modal() {
 
     const info = document.createElement('div');
     info.textContent = 'Info';
-    info.className = 'ph3 pv1 ba mv3';
+    info.className = 'ph3 pv1 ba ma3';
     info.style.cursor = 'pointer';
     info.style.display = 'inline-block';
     info.onclick = function() {
       modal.style.display = "block";
       overlay.style.display = "block";
     };
-    document.getElementById('info-container').append(info);
+    document.getElementById('button-container').append(info);
 }

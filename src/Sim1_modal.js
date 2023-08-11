@@ -1,7 +1,7 @@
 function createButton() {
   const info = document.createElement('div');
   info.textContent = 'Info';
-  info.className = 'ph3 pv1 ba mv3';
+  info.className = 'ph3 pv1 ba ma3';
   info.style.cursor = 'pointer';
   info.style.display = 'inline-block';
   info.onclick = function() {
@@ -44,6 +44,6 @@ export default function setup_modal() {
         }
     }
 
-  document.getElementById('info-container').append(createButton());
+  document.getElementById('button-container').append(createButton());
   document.getElementById('overhead-info').append(createButton());
 }

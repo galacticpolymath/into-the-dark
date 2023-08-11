@@ -31,8 +31,22 @@ class Sim4 extends BasicSim {
             <p>How can you configure the sliders below to maximize \
             the time in the dark for an average fish?');
 
-        setup_sliders(params);
+        this.sliders = setup_sliders(params);
         setup_modal();
+    }
+
+    reset(params) {
+        this.sliders.speed_slider.value(2)
+        this.sliders.al_slider.value(1)
+        this.sliders.ar_slider.value(2)
+        params.alignment_radius = params.al_def;
+        params.dark_al = params.al_def;
+        params.attraction_radius = params.ar_def;
+        params.dark_ar = params.ar_def;
+        params.speed_in_the_dark = params.speed_def;
+        params.speed_in_the_light = params.speed_def;
+    
+        this.initialize(this.params);
     }
 }
 

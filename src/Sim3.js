@@ -29,10 +29,19 @@ class Sim3 extends BasicSim {
                 or is there a combination that works best to cause the fish \
                 to group together?');
 
-        setup_sliders(this.params);
+        this.sliders = setup_sliders(this.params);
         setup_modal();
     }
+
+    reset(params) {
+        this.sliders.al_slider.value(this.params.al_def)
+        this.sliders.ar_slider.value(this.params.ar_def)
+    
+        this.initialize(this.params);
+    }
 }
+
+
 
 export default function load () {
     document.getElementById("sim").innerHTML = '';

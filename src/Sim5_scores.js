@@ -100,9 +100,9 @@ export function updateTable (res) {
         const cells = document.getElementsByTagName('td');
         for(let j = 0; j < 5; j++) {
             if (j == 4) {
-                cells[j].textContent = ${perc(data[j])};
+                cells[j].textContent = perc(data[j]);
             }
-            else {cells[j].textContent = data[j];}
+            else cells[j].textContent = data[j];
         }
     }
 }
