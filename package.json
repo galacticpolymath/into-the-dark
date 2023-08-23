@@ -6,9 +6,9 @@
   "description": "Collective intelligence - A model for a school of fish that collectively seeks a hideout",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/galacticpolymath/into-the-dark-sim.git"
+    "url": "git+https://github.com/chengp3/into-the-dark.git"
   },
-  "author": "Dirk Brockmann (https://rocs.hu-berlin.de)",
+  "author": "Pat Cheng",
   "main": "./src/index.html",
   "module": "src/index.js",
   "scripts": {

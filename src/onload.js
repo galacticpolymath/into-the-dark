@@ -1,6 +1,3 @@
-import logoPng from './gp_logo_gradient_transBG.png'
-import {each} from 'lodash-es'
-
 let sim;
 
 window.onload = function() {
